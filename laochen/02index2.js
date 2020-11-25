@@ -7,5 +7,4 @@ const qs = require('qs');
 //3.没有package.json或者main属性,则默认加载index.js
 //4.如果同级目录下没有node_modules文件夹,则会向父级查找
 //5.如果磁盘根目录都没有找到,则抛出错误,can not find moudle xxx
-
 console.log('🚀 ~ qs', qs.stringify({ a: 1 }));
