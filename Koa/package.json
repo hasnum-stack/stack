@@ -1,0 +1,18 @@
+{
+    "name": "koa",
+    "version": "1.0.0",
+    "description": "a koa test",
+    "main": "app.js",
+    "author": "hasnum",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "dependencies": {
+        "@koa/router": "^9.4.0",
+        "ejs": "^3.1.5",
+        "koa": "^2.13.0",
+        "koa-bodyparser": "^4.3.0",
+        "koa-views": "^6.3.0"
+    }
+}
