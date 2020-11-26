@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "officegen": "^0.6.4"
+  },
+  "name": "1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
