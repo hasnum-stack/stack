@@ -14,5 +14,5 @@ app.all('*', function (req, res, next) {
     else next();
 });
 
-app.get('/', (req, res) => res.json({ data: { user: 'zzh' }, code: 400 }));
+app.get('/', (req, res) => res.json({ data: { user: 'zzh' }, code: 200 }));
 app.listen(port, () => console.log(`开启${port}`));
