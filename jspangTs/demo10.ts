@@ -1,6 +1,6 @@
 /*
  * @Description:
- * @LastEditTime: 2020-12-15 22:25:10
+ * @LastEditTime: 2020-12-16 22:41:33
  */
 class Laaa {
     private a: string = 'hi';
@@ -25,3 +25,20 @@ rjlkfsdj.sayB();
 
 const dsfjkl = new Laaa();
 console.log('🚀 ~ dsfjkl', dsfjkl);
+
+class Auio {
+    a: string;
+    say() {
+        return 'super';
+    }
+    constructor(test: string = '213') {
+        this.a = test;
+    }
+}
+class Tewr extends Auio {
+    dsk() {
+        return super.say() + 123;
+    }
+}
+// console.log(new Auio());
+console.log(new Tewr().dsk());
