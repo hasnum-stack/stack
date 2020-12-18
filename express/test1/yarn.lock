@@ -467,6 +467,11 @@ path-to-regexp@0.1.7:
   resolved "https://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-0.1.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpath-to-regexp%2Fdownload%2Fpath-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
 
+prepend-http@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/prepend-http/download/prepend-http-3.0.1.tgz#3e724d58fd5867465b300bb9615009fa2f8ee3b6"
+  integrity sha1-PnJNWP1YZ0ZbMAu5YVAJ+i+O47Y=
+
 promise@^6.0.1:
   version "6.1.0"
   resolved "https://registry.npm.taobao.org/promise/download/promise-6.1.0.tgz#2ce729f6b94b45c26891ad0602c5c90e04c6eef6"
@@ -638,6 +643,13 @@ unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/unpipe/download/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
+
+url-parse-lax@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npm.taobao.org/url-parse-lax/download/url-parse-lax-4.0.0.tgz#94f9b0dd8190e8baee1ce2049f79e5c67dc3318b"
+  integrity sha1-lPmw3YGQ6LruHOIEn3nlxn3DMYs=
+  dependencies:
+    prepend-http "^3.0.1"
 
 utils-merge@1.0.1:
   version "1.0.1"
