@@ -1,6 +1,6 @@
 /*
  * @Description:泛型(类)
- * @LastEditTime: 2020-12-20 17:52:39
+ * @LastEditTime: 2020-12-20 18:08:48
  */
 // class Select {
 //     constructor(private person: string[]) {}
@@ -42,4 +42,4 @@ class Select<T extends number | string> {
     }
 }
 const dsjfklasdj = new Select(['1', 2, '213123', '233', 232424]);
-console.log(dsjfklasdj.selectByNumber(2));
+console.log(dsjfklasdj.selectByNumber(1));
