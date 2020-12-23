@@ -1,0 +1,8 @@
+{
+    "name": "tsweb",
+    "version": "1.0.0",
+    "description": "test tsweb",
+    "main": "index.html",
+    "author": "hasnum",
+    "license": "MIT"
+}

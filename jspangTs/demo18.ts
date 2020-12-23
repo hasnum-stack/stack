@@ -1,6 +1,6 @@
 /*
  * @Description:泛型(类)
- * @LastEditTime: 2020-12-20 18:08:48
+ * @LastEditTime: 2020-12-23 22:32:00
  */
 // class Select {
 //     constructor(private person: string[]) {}
@@ -30,16 +30,46 @@
 //         return this.personlist[index].name;
 //     }
 // }
-// const aselect = new Select([{ name: '123' }, { name: '1233432' }, { name: 'jdklfjdsl' }]);
+// const aselect = new Select<Person>([{ name: '123' }, { name: '1233432' }, { name: 'jdklfjdsl' }]);
 // console.log(aselect.getaperson(2));
 
 //泛型约束
+// class Select<T extends number | string> {
+//     constructor(private perlist: T[]) {}
+//     selectByNumber(index: number) {
+//         return this.perlist[index];
+//     }
+// }
+// const dsjfklasdj = new Select(['1', 2, '213123', '233', 232424]);
+// console.log(dsjfklasdj.selectByNumber(1));
 
-class Select<T extends number | string> {
-    constructor(private perlist: T[]) {}
-    selectByNumber(index: number) {
-        return this.perlist[index];
-    }
-}
-const dsjfklasdj = new Select(['1', 2, '213123', '233', 232424]);
-console.log(dsjfklasdj.selectByNumber(1));
+/**
+ * @练习
+ */
+// class Select<T> {
+//     constructor(private list: Array<T>) {}
+//     getListByIndex(index: number): T {
+//         return this.list[index];
+//     }
+// }
+// const list = new Select<string>(['123', '123', '456']);
+// console.log('🚀 ~ listIndex', list.getListByIndex(1));
+
+// interface PersonName {
+//     name: string;
+// }
+// class Person<T extends PersonName> {
+//     constructor(private list: Array<T>) {}
+//     getPseronByIndex(index: number): T {
+//         return this.list[index];
+//     }
+// }
+
+// const apersonlist = new Person([
+//     { name: '123', age: 12 },
+//     { name: '435', age: 345 },
+//     { name: 'hasnum', age: 25 },
+// ]);
+// console.log('🚀 ~ ', apersonlist.getPseronByIndex(0));
+
+// class Select<T extends string | number> {}
