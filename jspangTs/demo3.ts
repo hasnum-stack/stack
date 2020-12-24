@@ -1,6 +1,6 @@
 /*
  * @Description:
- * @LastEditTime: 2020-12-22 15:01:04
+ * @LastEditTime: 2020-12-23 11:01:38
  */
 const aperson: { name: string; hubit: string[] } = {
     name: 'hasnum',
@@ -16,3 +16,6 @@ const afunc: () => string = () => {
 };
 let a = afunc();
 console.log('🚀 ~ a', a);
+
+function serew(color: 'top' | 'middle'): void {}
+serew('middle');
