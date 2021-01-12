@@ -33,6 +33,8 @@
 </template>
 
 <script lang="ts">
+    import qs from 'qs';
+    console.log('🚀 ~ qs', qs);
     import { Component, Prop, Vue } from 'vue-property-decorator';
 
     @Component
