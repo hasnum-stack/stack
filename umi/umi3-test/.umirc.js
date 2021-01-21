@@ -1,5 +1,5 @@
 export default {
-  dva: false,
+  dva: {},
   dynamicImport: false,
   title: 'umi3-test',
   //   routes: {

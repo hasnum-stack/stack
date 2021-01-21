@@ -1,7 +1,9 @@
 export default {
   namespace: "example",
 
-  state: {},
+  state: {
+    test: 123,
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {
