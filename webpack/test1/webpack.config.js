@@ -2,12 +2,16 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-    mode: 'development',
-    entry: './src/app.js',
+    /**
+     * core:入口
+     *
+     */
+    entry: ['./src/app.js', './src/app2.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[fullhash:8].js',
     },
+    mode: 'development',
     devtool: 'inline-source-map',
     plugins: [
         new CleanWebpackPlugin(),
