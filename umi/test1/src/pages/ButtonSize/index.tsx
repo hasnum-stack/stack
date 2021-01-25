@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./index.less";
-import { Button, Radio } from "antd";
-import { DownloadOutlined } from "@ant-design/icons";
+import React from 'react';
+import styles from './index.less';
+import { Button, Radio } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import { SizeType } from 'antd/es/config-provider/SizeContext';
 import { RadioChangeEvent } from 'antd/es/radio';
 
 class ButtonSize extends React.Component {
   state = {
-    size: "large" as SizeType
+    size: 'large' as SizeType,
   };
 
   handleSizeChange = (e: RadioChangeEvent) => {
