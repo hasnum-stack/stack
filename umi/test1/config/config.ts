@@ -13,6 +13,7 @@ export default defineConfig({
   routes: [
     { path: '/', name: 'test1', component: '@/pages/test1' },
     { path: '/test2', name: 'test2', component: '@/pages/test2' },
+    { path: '/test3', name: 'test3', component: '@/pages/test3' },
     {
       path: '/ButtonSize',
       name: 'ButtonSize',
