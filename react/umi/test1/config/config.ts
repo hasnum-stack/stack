@@ -5,7 +5,7 @@ export default defineConfig({
   dva: {},
   antd: {},
   cssLoader: {
-    localsConvention: 'camelCase',
+    localsConvention: 'camelCaseOnly',
   },
   dynamicImport: {
     loading: '@/components/PageLoading/index',

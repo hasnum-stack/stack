@@ -1,14 +1,19 @@
 import React from 'react';
-import _ from './index.scss';
+import { gameContainer, gameInfo } from './index.scss';
 import Board from '../board';
+
+/**
+ * 游戏界面
+ *
+ */
 const game = () => {
   return (
     <>
-      <div className={_.game}>
-        <div className={_.gameBoard}>
+      <div className={gameContainer}>
+        <div>
           <Board />
         </div>
-        <div className={_.gameInfo}>123</div>
+        <div className={gameInfo}>123</div>
       </div>
     </>
   );
