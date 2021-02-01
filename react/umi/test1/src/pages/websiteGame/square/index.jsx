@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import style from './index.scss';
+import { squareBtn } from './index.scss';
 
 /**
  * 棋子
  *
  */
 const square = (props) => {
-  //   const { value } = props;
-  const [value, setValue] = useState(null);
+  const { value, click } = props;
   return (
     <>
-      <button className={style.square} onClick={() => setValue('X')}>
+      <button className={squareBtn} onClick={click}>
         {value}
       </button>
     </>
