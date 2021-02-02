@@ -22,7 +22,7 @@ const board = () => {
   return (
     <>
       {squareList}
-      <div className={currentStatus}>{`轮到${turnStringify}了`}</div>
+      {/* <div className={currentStatus}>{`轮到${turnStringify}了`}</div> */}
       <div className={boardRow}>
         {renderSquare(0)}
         {renderSquare(1)}
