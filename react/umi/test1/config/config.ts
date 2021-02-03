@@ -1,7 +1,6 @@
 import { IApi, defineConfig } from 'umi';
 import path from 'path';
 import babel from '@umijs/babel-preset-umi';
-
 export default defineConfig({
   layout: {},
   dva: {},
@@ -16,9 +15,31 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', name: 'test1', component: '@/pages/test1' },
-    { path: '/test2', name: 'test2', component: '@/pages/test2' },
-    { path: '/test3', name: 'test3', component: '@/pages/test3' },
+    {
+      name: '个人中心',
+      path: '/accountcenter',
+      component: './AccountCenter',
+    },
+    {
+      path: '/',
+      name: 'test1',
+      component: '@/pages/test1',
+    },
+    {
+      path: '/test2',
+      name: 'test2',
+      component: '@/pages/test2',
+    },
+    {
+      path: '/test3',
+      name: 'test3',
+      component: '@/pages/test3',
+    },
+    {
+      path: '/test4',
+      name: 'test4',
+      component: '@/pages/test4',
+    },
     {
       path: '/websiteGame',
       name: 'websiteGame',
@@ -32,6 +53,7 @@ export default defineConfig({
   ],
   fastRefresh: {},
   locale: {},
+
   /**
    * 如果是相对路径，则会从项目根目录开始找
    *

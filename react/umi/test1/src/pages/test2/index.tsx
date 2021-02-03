@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.less';
 import { PageLoading, PageContainer } from '@ant-design/pro-layout';
 import { Button, Divider, Modal } from 'antd';
+import FormRegister from './FormRegister';
 export default function IndexPage() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modelId, setmodelId] = useState(NaN);
@@ -13,6 +14,7 @@ export default function IndexPage() {
       <Button onClick={() => handleTurnOnModel(4)}>34234</Button>
     </>
   );
+
   const handleTurnOnModel = (id: number): void => {
     setmodelId(id);
     setIsModalVisible(true);
@@ -21,9 +23,9 @@ export default function IndexPage() {
   const handleCancel = (): void => {
     setIsModalVisible(false);
   };
+
   return (
-    <PageContainer
-      //   content="欢迎使用 ProLayout 组件"
+    <PageContainer //   content="欢迎使用 ProLayout 组件"
       tabList={[
         {
           tab: '基本信息',
@@ -43,6 +45,7 @@ export default function IndexPage() {
       ]}
       content={contentList}
     >
+      <FormRegister />
       <Modal
         title="Basic Modal"
         visible={isModalVisible}

@@ -7,22 +7,93 @@ import { currentStatus, boardRow } from './index.scss';
  *
  */
 const board = () => {
+  const a = Math.random();
+
   const [squareList, setSquare] = useState(Array(9).fill(null));
   const [turn, setTurn] = useState(true);
 
-  const handleClick = (index) => {
+  const [winner, setWinner] = useState('');
+
+  const [winCondition] = useState([
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6],
+  ]);
+
+  const handleClick = (index, value) => {
+    if (winner) {
+      console.info(`${winner}已经赢了`);
+      return;
+    }
+    //判断是否有值,有值不允许覆盖
+    if (value) {
+      console.warn(`这个地方有棋子${value}了`);
+      return;
+    }
     const parcelSquareList = squareList;
-    parcelSquareList[index] = turn ? 'X' : 'O';
+    const turnStringify = turn ? 'X' : 'O';
+    parcelSquareList[index] = turnStringify;
+
+    //下棋
     setSquare(parcelSquareList);
-    setTurn(!turn);
+
+    for (let i = 0; i < winCondition.length; i++) {
+      const item = winCondition[i],
+        [square1, square2, square3] = item;
+
+      //   console.log('🚀 ~ handleClick ~ square1', square1);
+      //   console.log('🚀 ~ handleClick ~ square2', square2);
+      //   console.log('🚀 ~ handleClick ~ square3', square3);
+      //   console.log(
+      //     '🚀 ~ handleClick ~ parcelSquareList[square3]',
+      //     parcelSquareList[square3],
+      //   );
+      //   console.log(
+      //     '🚀 ~ handleClick ~ parcelSquareList[square2]',
+      //     parcelSquareList[square2],
+      //   );
+      //   console.log(
+      //     '🚀 ~ handleClick ~ parcelSquareList[square1]',
+      //     parcelSquareList[square1],
+      //   );
+      if (
+        parcelSquareList[square1] &&
+        parcelSquareList[square1] === parcelSquareList[square2] &&
+        parcelSquareList[square1] === parcelSquareList[square3]
+      ) {
+        console.log('🚀 ~ handleClick ~ parcelSquareList[square3]', square3);
+        console.log('🚀 ~ handleClick ~ parcelSquareList[square2]', square2);
+        console.log('🚀 ~ handleClick ~ parcelSquareList[square1]', square1);
+        setWinner(turnStringify);
+        break;
+      }
+    }
+    if (!winner) {
+      setTurn(!turn);
+    }
   };
   const renderSquare = (i) => {
-    return <Square value={squareList[i]} click={() => handleClick(i)}></Square>;
+    return (
+      <Square
+        value={squareList[i]}
+        // value={i}
+        click={(value) => handleClick(i, value)}
+      ></Square>
+    );
   };
   return (
     <>
-      {squareList}
-      {/* <div className={currentStatus}>{`轮到${turnStringify}了`}</div> */}
+      {a}
+      <div className={currentStatus}>
+        {winner ? `${winner}赢了` : `轮到${turn ? 'X' : 'O'}了`}
+      </div>
       <div className={boardRow}>
         {renderSquare(0)}
         {renderSquare(1)}
