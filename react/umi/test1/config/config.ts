@@ -2,7 +2,9 @@ import { IApi, defineConfig } from 'umi';
 import path from 'path';
 import babel from '@umijs/babel-preset-umi';
 export default defineConfig({
-  layout: {},
+  layout: {
+    fixedHeader: false,
+  },
   dva: {},
   antd: {},
   cssLoader: {

@@ -1,0 +1,20 @@
+{
+    "name": "test2ObjectdefineProperty",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "hasnum",
+    "license": "MIT",
+    "scripts": {
+        "start": "webpack serve",
+        "build": "webpack"
+    },
+    "devDependencies": {
+        "clean-webpack-plugin": "^3.0.0",
+        "html-webpack-plugin": "^5.1.0",
+        "style-loader": "^2.0.0",
+        "css-loader": "^5.0.2",
+        "webpack": "^5.21.2",
+        "webpack-cli": "^4.5.0",
+        "webpack-dev-server": "^3.11.2"
+    }
+}
