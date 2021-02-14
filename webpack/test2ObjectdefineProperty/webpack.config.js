@@ -8,9 +8,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.[contenthash:8].js',
     },
-    devServer: {
-        contentBase: './src',
-    },
+    // devServer: {
+    //     contentBase: './src',
+    // },
     module: {
         rules: [
             {
