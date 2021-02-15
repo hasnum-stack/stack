@@ -1,5 +1,4 @@
 import React from 'react';
-// import { findDOMNode } from 'react-dom';
 import { clickType } from './data.d';
 import { gameContainer, gameInfo } from './index.scss';
 import Board from '../board/index.jsx';

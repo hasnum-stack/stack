@@ -5,6 +5,7 @@ export default defineConfig({
   layout: {
     fixedHeader: false,
   },
+  // ssr: {},
   dva: {},
   antd: {},
   cssLoader: {
@@ -15,6 +16,9 @@ export default defineConfig({
   },
   nodeModulesTransform: {
     type: 'none',
+  },
+  history: {
+    type: 'browser',
   },
   routes: [
     {
@@ -55,7 +59,6 @@ export default defineConfig({
   ],
   fastRefresh: {},
   locale: {},
-
   /**
    * 如果是相对路径，则会从项目根目录开始找
    *
