@@ -7,9 +7,10 @@ import { currentStatus, boardRow } from './index.scss';
  *
  */
 const board = () => {
-  const a = Math.random();
+  const [squareListHistory, setSquareListHistory] = useState([]);
 
   const [squareList, setSquare] = useState(Array(9).fill(null));
+
   const [turn, setTurn] = useState(true);
 
   const [winner, setWinner] = useState('');
@@ -48,21 +49,6 @@ const board = () => {
       const item = winCondition[i],
         [square1, square2, square3] = item;
 
-      //   console.log('🚀 ~ handleClick ~ square1', square1);
-      //   console.log('🚀 ~ handleClick ~ square2', square2);
-      //   console.log('🚀 ~ handleClick ~ square3', square3);
-      //   console.log(
-      //     '🚀 ~ handleClick ~ parcelSquareList[square3]',
-      //     parcelSquareList[square3],
-      //   );
-      //   console.log(
-      //     '🚀 ~ handleClick ~ parcelSquareList[square2]',
-      //     parcelSquareList[square2],
-      //   );
-      //   console.log(
-      //     '🚀 ~ handleClick ~ parcelSquareList[square1]',
-      //     parcelSquareList[square1],
-      //   );
       if (
         parcelSquareList[square1] &&
         parcelSquareList[square1] === parcelSquareList[square2] &&
@@ -90,7 +76,6 @@ const board = () => {
   };
   return (
     <>
-      {a}
       <div className={currentStatus}>
         {winner ? `${winner}赢了` : `轮到${turn ? 'X' : 'O'}了`}
       </div>
