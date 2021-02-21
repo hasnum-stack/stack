@@ -2,7 +2,10 @@ import { IApi, defineConfig } from 'umi';
 import path from 'path';
 import babel from '@umijs/babel-preset-umi';
 export default defineConfig({
-  layout: {},
+  layout: {
+    fixedHeader: false,
+  },
+  // ssr: {},
   dva: {},
   antd: {},
   cssLoader: {
@@ -13,6 +16,9 @@ export default defineConfig({
   },
   nodeModulesTransform: {
     type: 'none',
+  },
+  history: {
+    type: 'browser',
   },
   routes: [
     {
@@ -53,7 +59,6 @@ export default defineConfig({
   ],
   fastRefresh: {},
   locale: {},
-
   /**
    * 如果是相对路径，则会从项目根目录开始找
    *
