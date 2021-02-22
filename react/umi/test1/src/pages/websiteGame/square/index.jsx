@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { squareBtn } from './index.scss';
+import React, { useState } from "react";
+import { squareBtn } from "./index.scss";
 
 /**
  * 棋子
@@ -7,6 +7,7 @@ import { squareBtn } from './index.scss';
  */
 const square = (props) => {
   const { value, click } = props;
+  const a = 1;
   return (
     <>
       <button className={squareBtn} onClick={() => click(value)}>

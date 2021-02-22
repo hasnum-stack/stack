@@ -1,13 +1,14 @@
-import React, { ReactElement } from 'react';
-import { clickType } from './data.d';
-import { gameContainer, gameInfo } from './index.scss';
-import Board from '../board/index.jsx';
+import React, { ReactElement } from "react";
+import { clickType } from "./data.d";
+import { gameContainer, gameInfo } from "./index.scss";
+import Board from "../board/index.jsx";
 
 /**
  * 游戏界面
  *
  */
 const game: React.FC = (): ReactElement => {
+  const test = 1;
   const handleClick = (a: clickType): void => {
     console.log(a);
   };
@@ -31,9 +32,9 @@ const game: React.FC = (): ReactElement => {
   );
 };
 var efsf = function () {};
-console.log('🚀 ~ efsf', efsf);
+console.log("🚀 ~ efsf", efsf);
 var efksd = 1;
-console.log('🚀 ~ efksd', efksd);
+console.log("🚀 ~ efksd", efksd);
 function test(): number {
   return 1;
 }
