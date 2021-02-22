@@ -1,4 +1,3 @@
-import react from 'react';
 const footer = () => {
   return (
     <>

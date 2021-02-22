@@ -6,6 +6,12 @@ import FormRegister from './FormRegister';
 export default function IndexPage() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modelId, setmodelId] = useState(NaN);
+
+  const handleTurnOnModel = (id: number): void => {
+    setmodelId(id);
+    setIsModalVisible(true);
+  };
+
   const contentList = (
     <>
       <Button onClick={() => handleTurnOnModel(1)}>34234</Button>
@@ -14,11 +20,6 @@ export default function IndexPage() {
       <Button onClick={() => handleTurnOnModel(4)}>34234</Button>
     </>
   );
-
-  const handleTurnOnModel = (id: number): void => {
-    setmodelId(id);
-    setIsModalVisible(true);
-  };
 
   const handleCancel = (): void => {
     setIsModalVisible(false);
@@ -46,11 +47,7 @@ export default function IndexPage() {
       content={contentList}
     >
       <FormRegister />
-      <Modal
-        title="Basic Modal"
-        visible={isModalVisible}
-        onCancel={handleCancel}
-      >
+      <Modal title="Basic Modal" visible={isModalVisible} onCancel={handleCancel}>
         <p>Some contents...</p>
         <p>Some contents...</p>
         <p>Some contents...</p>

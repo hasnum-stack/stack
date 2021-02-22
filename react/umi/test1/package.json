@@ -43,6 +43,7 @@
     "@umijs/preset-ui": "^2.2.9",
     "@umijs/test": "^3.3.7",
     "eslint": "^7.20.0",
+    "eslint-webpack-plugin": "^2.5.2",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "react": "17.x",
