@@ -1,6 +1,7 @@
 import react, { Component } from 'react';
 import ComA from './components/com-a';
 import { Button } from 'antd';
+
 export default class test extends Component {
   constructor() {
     super();
@@ -48,3 +49,7 @@ export default class test extends Component {
     });
   }
 }
+function dsfdsfsdf() {}
+console.log('🚀 ~ dsfdsfsdf', dsfdsfsdf);
+const tresfsdf = () => {};
+console.log('🚀 ~ tresfsdf', tresfsdf);

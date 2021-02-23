@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import styles from './index.less';
 import { PageLoading, PageContainer } from '@ant-design/pro-layout';
 import { Button, Divider, Modal } from 'antd';
 import FormRegister from './FormRegister';
+
 export default function IndexPage() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modelId, setmodelId] = useState(NaN);
-
   const handleTurnOnModel = (id: number): void => {
     setmodelId(id);
     setIsModalVisible(true);

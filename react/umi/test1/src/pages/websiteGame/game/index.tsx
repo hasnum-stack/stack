@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react';
-import { clickType } from './data.d';
+import type { ReactElement } from 'react';
+import React from 'react';
+import type { clickType } from './data.d';
 import { gameContainer, gameInfo } from './index.scss';
-import Board from '../board/index.jsx';
+import Board from '../board';
 
 /**
  * 游戏界面
@@ -17,11 +18,7 @@ const game: React.FC = (): ReactElement => {
         <div>
           <div>213</div>
           <Board />
-          <button
-            className="prettier-class"
-            id="prettier-id"
-            onClick={() => handleClick({ age: 1, name: 2 })}
-          >
+          <button className="prettier-class" id="prettier-id" onClick={() => handleClick({ age: 1, name: 2 })}>
             Click Here
           </button>
         </div>
@@ -30,12 +27,16 @@ const game: React.FC = (): ReactElement => {
     </>
   );
 };
-var efsf = function () {};
+const efsf = function () {
+  console.log(1123);
+};
 console.log('🚀 ~ efsf', efsf);
-var efksd = 1;
+const efksd = 1;
 console.log('🚀 ~ efksd', efksd);
 function test(): number {
   return 1;
 }
 test();
 export default game;
+class Dsfsdf {}
+console.log('🚀 ~ Test', Dsfsdf);

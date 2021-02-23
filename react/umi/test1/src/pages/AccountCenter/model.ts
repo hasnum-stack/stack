@@ -1,5 +1,5 @@
-import { Reducer, Effect } from 'umi';
-import { CurrentUser, ListItemDataType } from './data.d';
+import type { Reducer, Effect } from 'umi';
+import type { CurrentUser, ListItemDataType } from './data.d';
 import { queryCurrent, queryFakeList } from './service';
 
 export interface ModalState {

@@ -1,3 +1,4 @@
+import type { FC, ReactElement } from 'react';
 import React, { useEffect, useState } from 'react';
 import Square from '../square';
 import { currentStatus, boardRow } from './index.scss';
@@ -6,7 +7,7 @@ import { currentStatus, boardRow } from './index.scss';
  * 棋盘
  *
  */
-const board = () => {
+const Board: FC = (): ReactElement => {
   const [squareListHistory, setSquareListHistory] = useState([]);
 
   const [squareList, setSquare] = useState(Array(9).fill(null));
@@ -33,7 +34,7 @@ const board = () => {
       console.info(`${winner}已经赢了`);
       return;
     }
-    //判断是否有值,有值不允许覆盖
+    // 判断是否有值,有值不允许覆盖
     if (value) {
       console.warn(`这个地方有棋子${value}了`);
       return;
@@ -42,12 +43,12 @@ const board = () => {
     const turnStringify = turn ? 'X' : 'O';
     parcelSquareList[index] = turnStringify;
 
-    //下棋
+    // 下棋
     setSquare(parcelSquareList);
 
     for (let i = 0; i < winCondition.length; i++) {
-      const item = winCondition[i],
-        [square1, square2, square3] = item;
+      const item = winCondition[i];
+      const [square1, square2, square3] = item;
 
       if (
         parcelSquareList[square1] &&
@@ -76,9 +77,7 @@ const board = () => {
   };
   return (
     <>
-      <div className={currentStatus}>
-        {winner ? `${winner}赢了` : `轮到${turn ? 'X' : 'O'}了`}
-      </div>
+      <div className={currentStatus}>{winner ? `${winner}赢了` : `轮到${turn ? 'X' : 'O'}了`}</div>
       <div className={boardRow}>
         {renderSquare(0)}
         {renderSquare(1)}
@@ -97,4 +96,4 @@ const board = () => {
     </>
   );
 };
-export default board;
+export default Board;

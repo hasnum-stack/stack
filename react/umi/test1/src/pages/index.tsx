@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from './index.less';
 import ButtonSize from './ButtonSize';
+
 const IndexPage = () => {
   return (
     <div>

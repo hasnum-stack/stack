@@ -1,8 +1,9 @@
-import react, { Component } from 'react';
+import { Component } from 'react';
+
 export default class ComA extends Component {
-  constructor(props) {
-    super();
-  }
+  // constructor(props) {
+  //   super();
+  // }
   render() {
     console.log('childRender');
     return (

@@ -1,12 +1,16 @@
 import { IApi, defineConfig } from 'umi';
 import path from 'path';
-import babel from '@umijs/babel-preset-umi';
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 export default defineConfig({
-  // chainWebpack: (memo, { env, webpack, createCSSRule }) => {
-  //   memo.plugin('ESLintPlugin').use(ESLintPlugin);
-  // },
+  chainWebpack: (memo, { env, webpack, createCSSRule }) => {
+    memo.plugin('ESLintPlugin').use(ESLintPlugin, [
+      {
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        fix: true,
+      },
+    ]);
+  },
   layout: {
     fixedHeader: false,
   },
