@@ -10,6 +10,7 @@ interface counterAction {
 interface counter {
   count: number;
 }
+
 const initCount: counter = {
   count: 0,
 };
