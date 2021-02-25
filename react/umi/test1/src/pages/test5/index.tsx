@@ -2,7 +2,6 @@ import React, { useReducer } from 'react';
 import { Button } from 'antd';
 import type { FC, ReactElement } from 'react';
 
-// TODO 修改主题颜色
 interface counterAction {
   type: 'decrement' | 'increment';
 }
@@ -15,6 +14,11 @@ const initCount: counter = {
   count: 0,
 };
 
+/**
+ * @param state
+ * @param action
+ *
+ */
 const countReducer = (state: counter, action: counterAction): counter => {
   if (action.type === 'decrement') {
     return { ...state, count: state.count - 1 };

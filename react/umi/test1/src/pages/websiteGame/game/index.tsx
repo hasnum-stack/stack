@@ -8,10 +8,11 @@ import Board from '../board';
  * 游戏界面
  *
  */
-const game: React.FC = (): ReactElement => {
+const Game: React.FC = (): ReactElement => {
   const handleClick = (a: clickType): void => {
     console.log(a);
   };
+
   return (
     <>
       <div className={gameContainer}>
@@ -27,16 +28,13 @@ const game: React.FC = (): ReactElement => {
     </>
   );
 };
+function test() {}
 const efsf = function () {
   console.log(1123);
 };
 console.log('🚀 ~ efsf', efsf);
 const efksd = 1;
 console.log('🚀 ~ efksd', efksd);
-function test(): number {
-  return 1;
-}
+
 test();
-export default game;
-class Dsfsdf {}
-console.log('🚀 ~ Test', Dsfsdf);
+export default Game;

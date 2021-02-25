@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { squareBtn } from "./index.scss";
+import React, { useState } from 'react';
+import { squareBtn } from './index.scss';
 
 /**
  * 棋子
  *
  */
-const square = (props) => {
+const Square = (props) => {
   const { value, click } = props;
   const a = 1;
   return (
@@ -17,4 +17,4 @@ const square = (props) => {
   );
 };
 
-export default square;
+export default Square;
