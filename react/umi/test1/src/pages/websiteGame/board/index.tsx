@@ -8,6 +8,7 @@ import { currentStatus, boardRow } from './index.scss';
  *
  */
 const Board: FC = (): ReactElement => {
+  console.log('Board');
   const [squareListHistory, setSquareListHistory] = useState([]);
 
   const [squareList, setSquare] = useState(Array(9).fill(null));
@@ -55,9 +56,6 @@ const Board: FC = (): ReactElement => {
         parcelSquareList[square1] === parcelSquareList[square2] &&
         parcelSquareList[square1] === parcelSquareList[square3]
       ) {
-        console.log('🚀 ~ handleClick ~ parcelSquareList[square3]', square3);
-        console.log('🚀 ~ handleClick ~ parcelSquareList[square2]', square2);
-        console.log('🚀 ~ handleClick ~ parcelSquareList[square1]', square1);
         setWinner(turnStringify);
         break;
       }

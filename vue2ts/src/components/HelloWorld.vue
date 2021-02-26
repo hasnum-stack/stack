@@ -1,5 +1,12 @@
 <template>
-    <div class="hello">
+    <div class="hello" @click="changeNum">
+        <TestRender />
+        <div>
+            {{ console.log(123) }}
+        </div>
+        <div>
+            {{ tess }}
+        </div>
         <h1>{{ msg }}</h1>
         <p>
             For a guide and recipes on how to configure / customize this project,<br />
@@ -22,6 +29,7 @@
             <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
         </ul>
         <h3>Ecosystem</h3>
+
         <ul>
             <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
             <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
@@ -36,10 +44,19 @@
     import qs from 'qs';
     console.log('🚀 ~ qs', qs);
     import { Component, Prop, Vue } from 'vue-property-decorator';
+    import TestRender from './TestRender.vue';
 
-    @Component
+    @Component({
+        components: { TestRender },
+    })
     export default class HelloWorld extends Vue {
         @Prop() private msg!: string;
+        console = window.console;
+
+        tess = 1;
+        changeNum() {
+            this.tess++;
+        }
     }
 </script>
 

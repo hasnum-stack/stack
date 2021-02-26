@@ -16,5 +16,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     'no-plusplus': 'warn',
     'func-names': ['error', 'as-needed'],
+    'import/no-mutable-exports': 'warn',
   },
 };
