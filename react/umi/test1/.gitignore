@@ -13,6 +13,9 @@
 # misc
 .DS_Store
 
+.vscode
+.idea
+
 # umi
 /src/.umi
 /src/.umi-production
