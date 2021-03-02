@@ -25,25 +25,14 @@ const Projects: React.FC<Partial<ModalState>> = (props) => {
       dataSource={list}
       renderItem={(item) => (
         <List.Item>
-          <Card
-            className={styles.card}
-            hoverable
-            cover={<img alt={item.title} src={item.cover} />}
-          >
-            <Card.Meta
-              title={<a>{item.title}</a>}
-              description={item.subDescription}
-            />
+          <Card className={styles.card} hoverable cover={<img alt={item.title} src={item.cover} />}>
+            <Card.Meta title={<a>{item.title}</a>} description={item.subDescription} />
             <div className={styles.cardItemContent}>
               <span>{moment(item.updatedAt).fromNow()}</span>
               <div className={styles.avatarList}>
                 <AvatarList size="small">
                   {item.members.map((member) => (
-                    <AvatarList.Item
-                      key={`${item.id}-avatar-${member.id}`}
-                      src={member.avatar}
-                      tips={member.name}
-                    />
+                    <AvatarList.Item key={`${item.id}-avatar-${member.id}`} src={member.avatar} tips={member.name} />
                   ))}
                 </AvatarList>
               </div>

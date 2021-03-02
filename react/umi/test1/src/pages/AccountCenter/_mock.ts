@@ -2,16 +2,7 @@
 import type { Request, Response } from 'express';
 import type { ListItemDataType } from './data.d';
 
-const titles = [
-  'Alipay',
-  'Angular',
-  'Ant Design',
-  'Ant Design Pro',
-  'Bootstrap',
-  'React',
-  'Vue',
-  'Webpack',
-];
+const titles = ['Alipay', 'Angular', 'Ant Design', 'Ant Design Pro', 'Bootstrap', 'React', 'Vue', 'Webpack'];
 const avatars = [
   'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png', // Alipay
   'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png', // Angular
@@ -37,18 +28,7 @@ const desc = [
   '那时候我只会想自己想要什么，从不想自己拥有什么',
 ];
 
-const user = [
-  '付小小',
-  '曲丽丽',
-  '林东东',
-  '周星星',
-  '吴加好',
-  '朱偏右',
-  '鱼酱',
-  '乐哥',
-  '谭小仪',
-  '仲尼',
-];
+const user = ['付小小', '曲丽丽', '林东东', '周星星', '吴加好', '朱偏右', '鱼酱', '乐哥', '谭小仪', '仲尼'];
 
 function fakeList(count: number): ListItemDataType[] {
   const list = [];
@@ -59,11 +39,7 @@ function fakeList(count: number): ListItemDataType[] {
       title: titles[i % 8],
       avatar: avatars[i % 8],
       cover: parseInt(`${i / 4}`, 10) % 2 === 0 ? covers[i % 4] : covers[3 - (i % 4)],
-      status: ['active', 'exception', 'normal'][i % 3] as
-        | 'normal'
-        | 'exception'
-        | 'active'
-        | 'success',
+      status: ['active', 'exception', 'normal'][i % 3] as 'normal' | 'exception' | 'active' | 'success',
       percent: Math.ceil(Math.random() * 50) + 50,
       logo: avatars[i % 8],
       href: 'https://ant.design',

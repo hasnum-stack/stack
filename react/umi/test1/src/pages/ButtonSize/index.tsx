@@ -11,7 +11,9 @@ class ButtonSize extends React.Component {
   };
 
   handleSizeChange = (e: RadioChangeEvent) => {
-    this.setState({ size: e.target.value });
+    this.setState({
+      size: e.target.value,
+    });
   };
 
   render() {
@@ -38,24 +40,9 @@ class ButtonSize extends React.Component {
         </Button>
         <br />
         <Button type="primary" icon={<DownloadOutlined />} size={size} />
-        <Button
-          type="primary"
-          shape="circle"
-          icon={<DownloadOutlined />}
-          size={size}
-        />
-        <Button
-          type="primary"
-          shape="round"
-          icon={<DownloadOutlined />}
-          size={size}
-        />
-        <Button
-          type="primary"
-          shape="round"
-          icon={<DownloadOutlined />}
-          size={size}
-        >
+        <Button type="primary" shape="circle" icon={<DownloadOutlined />} size={size} />
+        <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size} />
+        <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size}>
           Download
         </Button>
         <Button type="primary" icon={<DownloadOutlined />} size={size}>

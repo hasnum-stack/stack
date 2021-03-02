@@ -1,9 +1,4 @@
-import {
-  PlusOutlined,
-  HomeOutlined,
-  ContactsOutlined,
-  ClusterOutlined,
-} from '@ant-design/icons';
+import { PlusOutlined, HomeOutlined, ContactsOutlined, ClusterOutlined } from '@ant-design/icons';
 import { Avatar, Card, Col, Divider, Input, Row, Tag } from 'antd';
 import React, { Component, useState, useRef } from 'react';
 import { GridContent } from '@ant-design/pro-layout';
@@ -22,7 +17,14 @@ const operationTabList = [
     key: 'articles',
     tab: (
       <span>
-        文章 <span style={{ fontSize: 14 }}>(8)</span>
+        文章{' '}
+        <span
+          style={{
+            fontSize: 14,
+          }}
+        >
+          (8)
+        </span>
       </span>
     ),
   },
@@ -30,7 +32,14 @@ const operationTabList = [
     key: 'applications',
     tab: (
       <span>
-        应用 <span style={{ fontSize: 14 }}>(8)</span>
+        应用{' '}
+        <span
+          style={{
+            fontSize: 14,
+          }}
+        >
+          (8)
+        </span>
       </span>
     ),
   },
@@ -38,7 +47,14 @@ const operationTabList = [
     key: 'projects',
     tab: (
       <span>
-        项目 <span style={{ fontSize: 14 }}>(8)</span>
+        项目{' '}
+        <span
+          style={{
+            fontSize: 14,
+          }}
+        >
+          (8)
+        </span>
       </span>
     ),
   },
@@ -49,11 +65,14 @@ interface AccountCenterProps extends RouteChildrenProps {
   currentUser: Partial<CurrentUser>;
   currentUserLoading: boolean;
 }
+
 interface AccountCenterState {
   tabKey?: 'articles' | 'applications' | 'projects';
 }
 
-const TagList: React.FC<{ tags: CurrentUser['tags'] }> = ({ tags }) => {
+const TagList: React.FC<{
+  tags: CurrentUser['tags'];
+}> = ({ tags }) => {
   const ref = useRef<Input | null>(null);
   const [newTags, setNewTags] = useState<TagType[]>([]);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
@@ -73,13 +92,13 @@ const TagList: React.FC<{ tags: CurrentUser['tags'] }> = ({ tags }) => {
 
   const handleInputConfirm = () => {
     let tempsTags = [...newTags];
-    if (
-      inputValue &&
-      tempsTags.filter((tag) => tag.label === inputValue).length === 0
-    ) {
+    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
       tempsTags = [
         ...tempsTags,
-        { key: `new-${tempsTags.length}`, label: inputValue },
+        {
+          key: `new-${tempsTags.length}`,
+          label: inputValue,
+        },
       ];
     }
     setNewTags(tempsTags);
@@ -98,7 +117,9 @@ const TagList: React.FC<{ tags: CurrentUser['tags'] }> = ({ tags }) => {
           ref={ref}
           type="text"
           size="small"
-          style={{ width: 78 }}
+          style={{
+            width: 78,
+          }}
           value={inputValue}
           onChange={handleInputChange}
           onBlur={handleInputConfirm}
@@ -106,7 +127,12 @@ const TagList: React.FC<{ tags: CurrentUser['tags'] }> = ({ tags }) => {
         />
       )}
       {!inputVisible && (
-        <Tag onClick={showInput} style={{ borderStyle: 'dashed' }}>
+        <Tag
+          onClick={showInput}
+          style={{
+            borderStyle: 'dashed',
+          }}
+        >
           <PlusOutlined />
         </Tag>
       )}
@@ -195,7 +221,15 @@ class AccountCenter extends Component<AccountCenterProps, AccountCenterState> {
             marginRight: 8,
           }}
         />
-        {(currentUser.geographic || { province: { label: '' } }).province.label}
+        {
+          (
+            currentUser.geographic || {
+              province: {
+                label: '',
+              },
+            }
+          ).province.label
+        }
         {
           (
             currentUser.geographic || {
@@ -212,15 +246,16 @@ class AccountCenter extends Component<AccountCenterProps, AccountCenterState> {
   render() {
     const { tabKey } = this.state;
     const { currentUser = {}, currentUserLoading } = this.props;
-    const dataLoading =
-      currentUserLoading || !(currentUser && Object.keys(currentUser).length);
+    const dataLoading = currentUserLoading || !(currentUser && Object.keys(currentUser).length);
     return (
       <GridContent>
         <Row gutter={20}>
           <Col lg={7} md={24}>
             <Card
               bordered={false}
-              style={{ marginBottom: 24 }}
+              style={{
+                marginBottom: 24,
+              }}
               loading={dataLoading}
             >
               {!dataLoading && (
@@ -233,7 +268,12 @@ class AccountCenter extends Component<AccountCenterProps, AccountCenterState> {
                   {this.renderUserInfo(currentUser)}
                   <Divider dashed />
                   <TagList tags={currentUser.tags || []} />
-                  <Divider style={{ marginTop: 16 }} dashed />
+                  <Divider
+                    style={{
+                      marginTop: 16,
+                    }}
+                    dashed
+                  />
                   <div className={styles.team}>
                     <div className={styles.teamTitle}>团队</div>
                     <Row gutter={36}>
@@ -274,7 +314,9 @@ export default connect(
     loading,
     accountCenter,
   }: {
-    loading: { effects: Record<string, boolean> };
+    loading: {
+      effects: Record<string, boolean>;
+    };
     accountCenter: ModalState;
   }) => ({
     currentUser: accountCenter.currentUser,

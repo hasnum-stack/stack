@@ -1,9 +1,4 @@
-import {
-  DownloadOutlined,
-  EditOutlined,
-  EllipsisOutlined,
-  ShareAltOutlined,
-} from '@ant-design/icons';
+import { DownloadOutlined, EditOutlined, EllipsisOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { Avatar, Card, Dropdown, List, Menu, Tooltip } from 'antd';
 import React from 'react';
 
@@ -92,7 +87,9 @@ const Applications: React.FC<Partial<ModalState>> = (props) => {
         <List.Item key={item.id}>
           <Card
             hoverable
-            bodyStyle={{ paddingBottom: 20 }}
+            bodyStyle={{
+              paddingBottom: 20,
+            }}
             actions={[
               <Tooltip key="download" title="下载">
                 <DownloadOutlined />
@@ -110,10 +107,7 @@ const Applications: React.FC<Partial<ModalState>> = (props) => {
           >
             <Card.Meta avatar={<Avatar size="small" src={item.avatar} />} title={item.title} />
             <div className={stylesApplications.cardItemContent}>
-              <CardInfo
-                activeUser={formatWan(item.activeUser)}
-                newUser={numeral(item.newUser).format('0,0')}
-              />
+              <CardInfo activeUser={formatWan(item.activeUser)} newUser={numeral(item.newUser).format('0,0')} />
             </div>
           </Card>
         </List.Item>

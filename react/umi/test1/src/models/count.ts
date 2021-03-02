@@ -15,7 +15,9 @@ export interface IndexModelType {
     // 启用 immer 之后
     // save: ImmerReducer<IndexModelState>;
   };
-  subscriptions: { setup: Subscription };
+  subscriptions: {
+    setup: Subscription;
+  };
 }
 const IndexModel: IndexModelType = {
   namespace: 'eewr',

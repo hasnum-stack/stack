@@ -8,6 +8,7 @@ interface PageProps extends ConnectProps {
   eewr: IndexModelState;
   loading: boolean;
 }
+
 const IndexPage: FC<PageProps> = ({ eewr, dispatch }) => {
   const { name } = eewr;
   // useTitle(`1231232423`);

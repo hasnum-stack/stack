@@ -12,9 +12,7 @@ export interface ApplicationsProps {
     href?: string;
   };
 }
-const ArticleListContent: React.FC<ApplicationsProps> = ({
-  data: { content, updatedAt, avatar, owner, href },
-}) => (
+const ArticleListContent: React.FC<ApplicationsProps> = ({ data: { content, updatedAt, avatar, owner, href } }) => (
   <div className={styles.listContent}>
     <div className={styles.description}>{content}</div>
     <div className={styles.extra}>

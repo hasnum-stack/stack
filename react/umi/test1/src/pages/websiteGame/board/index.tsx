@@ -64,7 +64,7 @@ const Board: FC = (): ReactElement => {
       setTurn(!turn);
     }
   };
-  const renderSquare = (i) => {
+  const renderSquare = (i: number) => {
     return (
       <Square
         value={squareList[i]}

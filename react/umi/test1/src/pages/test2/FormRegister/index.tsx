@@ -1,17 +1,6 @@
 import styles from './index.less';
 import React, { useState } from 'react';
-import {
-  Form,
-  Input,
-  Tooltip,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-} from 'antd';
+import { Form, Input, Tooltip, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -54,12 +43,18 @@ const residences = [
 
 const formItemLayout = {
   labelCol: {
-    xs: { span: 24 },
+    xs: {
+      span: 24,
+    },
     sm: { span: 8 },
   },
   wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 16,
+    },
   },
 };
 const tailFormItemLayout = {
@@ -84,7 +79,11 @@ const RegistrationForm = () => {
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
       </Select>
@@ -210,15 +209,30 @@ const RegistrationForm = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[{ required: true, message: 'Please input your phone number!' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please input your phone number!',
+          },
+        ]}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        <Input
+          addonBefore={prefixSelector}
+          style={{
+            width: '100%',
+          }}
+        />
       </Form.Item>
 
       <Form.Item
         name="website"
         label="Website"
-        rules={[{ required: true, message: 'Please input website!' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please input website!',
+          },
+        ]}
       >
         <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />

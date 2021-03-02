@@ -1,19 +1,21 @@
-import type { ReactElement } from 'react';
+import type { FC, ReactElement } from 'react';
 import { useState } from 'react';
-import { useContext } from 'react';
 import React from 'react';
 import type { clickType } from './data.d';
 import { gameContainer, gameInfo } from './index.scss';
 import Board from '../board';
 
-const defaultContext = { has: 1 };
-// const ThemeContext = React.createContext(defaultContext);
+const defaultContext = {
+  has: 1,
+};
+const ThemeContext = React.createContext(defaultContext);
+
 /**
  * 游戏界面
  *
  */
-const Game: React.FC = (): ReactElement => {
-  console.log(1);
+const Game: FC = (): ReactElement => {
+  console.log(123);
   const [context, changeContext] = useState(defaultContext);
 
   const [testRender, setTestRender] = useState(1);
@@ -30,10 +32,7 @@ const Game: React.FC = (): ReactElement => {
     <>
       <div className={gameContainer}>
         <div>
-          <div>
-            {`testRender =>`}
-            {testRender}
-          </div>
+          <div>{`testRender =>${testRender}`}</div>
           {/* <ThemeContext.Provider value={context}> */}
           <Board />
           {/* </ThemeContext.Provider> */}
@@ -42,7 +41,10 @@ const Game: React.FC = (): ReactElement => {
           </button>
           <button
             onClick={() => {
-              const parcel = { ...context, has: ++context.has };
+              const parcel = {
+                ...context,
+                has: context.has + 1,
+              };
               changeContext(parcel);
             }}
           >
@@ -54,7 +56,9 @@ const Game: React.FC = (): ReactElement => {
     </>
   );
 };
+
 function test() {}
+
 const efsf = function () {
   console.log(1123);
 };
@@ -63,5 +67,5 @@ const efksd = 1;
 console.log('🚀 ~ efksd', efksd);
 
 test();
-// export { ThemeContext };
+export { ThemeContext };
 export default Game;

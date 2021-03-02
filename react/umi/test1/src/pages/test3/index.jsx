@@ -1,4 +1,4 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 import ComA from './components/com-a';
 import { Button } from 'antd';
 

@@ -21,10 +21,16 @@ const initCount: counter = {
  */
 const countReducer = (state: counter, action: counterAction): counter => {
   if (action.type === 'decrement') {
-    return { ...state, count: state.count - 1 };
+    return {
+      ...state,
+      count: state.count - 1,
+    };
   }
   if (action.type === 'increment') {
-    return { ...state, count: state.count + 1 };
+    return {
+      ...state,
+      count: state.count + 1,
+    };
   }
   return state;
 };
@@ -32,9 +38,26 @@ const Test5: FC = (): ReactElement => {
   const [counter, dispatchCount] = useReducer(countReducer, initCount);
   return (
     <>
-      <Button onClick={() => dispatchCount({ type: 'decrement' })}>增加</Button>
+      <div>sdfsd1dsfsddsfdsf</div>
+      <Button
+        onClick={() =>
+          dispatchCount({
+            type: 'decrement',
+          })
+        }
+      >
+        增加
+      </Button>
       <span>{counter.count}</span>
-      <Button onClick={() => dispatchCount({ type: 'increment' })}>减少</Button>
+      <Button
+        onClick={() =>
+          dispatchCount({
+            type: 'increment',
+          })
+        }
+      >
+        减少
+      </Button>
     </>
   );
 };

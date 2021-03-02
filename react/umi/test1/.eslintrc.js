@@ -5,7 +5,7 @@
  *
  */
 module.exports = {
-  extends: [require.resolve('@umijs/fabric/dist/eslint')],
+  extends: [require.resolve('@umijs/fabric/dist/eslint'),'plugin:prettier/recommended'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
     page: true,
@@ -17,5 +17,6 @@ module.exports = {
     'no-plusplus': 'warn',
     'func-names': ['error', 'as-needed'],
     'import/no-mutable-exports': 'warn',
+    'prettier/prettier':'error'
   },
 };
