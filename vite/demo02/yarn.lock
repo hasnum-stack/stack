@@ -3,14 +3,14 @@
 
 
 colorette@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/colorette/download/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
-  integrity sha1-TQuSEyXBT6+SYzCGpTbbbolWSxs=
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/colorette/download/colorette-1.2.2.tgz?cache=0&sync_timestamp=1614259647923&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcolorette%2Fdownload%2Fcolorette-1.2.2.tgz#cbcc79d5e99caea2dbf10eb3a26fd8b3e6acfa94"
+  integrity sha1-y8x51emcrqLb8Q6zom/Ys+as+pQ=
 
-esbuild@^0.8.34:
-  version "0.8.44"
-  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.44.tgz#2a74f48fe20579081c9d8fe99be6fb8d2848c887"
-  integrity sha1-KnT0j+IFeQgcnY/pm+b7jShIyIc=
+esbuild@^0.8.52:
+  version "0.8.54"
+  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.54.tgz?cache=0&sync_timestamp=1614592024973&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fesbuild%2Fdownload%2Fesbuild-0.8.54.tgz#2f32ff80e95c69a0f25b799d76a27c05e2857cdf"
+  integrity sha1-LzL/gOlcaaDyW3mddqJ8BeKFfN8=
 
 fsevents@~2.3.1:
   version "2.3.2"
@@ -64,9 +64,9 @@ resolve@^1.19.0:
     path-parse "^1.0.6"
 
 rollup@^2.38.5:
-  version "2.38.5"
-  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.38.5.tgz?cache=0&sync_timestamp=1612505345201&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup%2Fdownload%2Frollup-2.38.5.tgz#be41ad4fe0c103a8794377afceb5f22b8f603d6a"
-  integrity sha1-vkGtT+DBA6h5Q3evzrXyK49gPWo=
+  version "2.40.0"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-2.40.0.tgz#efc218eaede7ab590954df50f96195188999c304"
+  integrity sha1-78IY6u3nq1kJVN9Q+WGVGImZwwQ=
   optionalDependencies:
     fsevents "~2.3.1"
 
@@ -76,11 +76,11 @@ source-map@^0.6.1:
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
 
 vite@^2.0.0-beta.69:
-  version "2.0.0-beta.69"
-  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.0-beta.69.tgz#dd10b4c366d64e670a0da612097fe9645c40212b"
-  integrity sha1-3RC0w2bWTmcKDaYSCX/pZFxAISs=
+  version "2.0.5"
+  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.5.tgz#ac46857a3fa8686d077921e61bd48a986931df1d"
+  integrity sha1-rEaFej+oaG0HeSHmG9SKmGkx3x0=
   dependencies:
-    esbuild "^0.8.34"
+    esbuild "^0.8.52"
     postcss "^8.2.1"
     resolve "^1.19.0"
     rollup "^2.38.5"

@@ -41,10 +41,7 @@ const Game: FC = (): ReactElement => {
           </button>
           <button
             onClick={() => {
-              const parcel = {
-                ...context,
-                has: context.has + 1,
-              };
+              const parcel = { ...context, has: context.has + 1 };
               changeContext(parcel);
             }}
           >
@@ -65,7 +62,6 @@ const efsf = function () {
 console.log('🚀 ~ efsf', efsf);
 const efksd = 1;
 console.log('🚀 ~ efksd', efksd);
-
 test();
 export { ThemeContext };
 export default Game;
