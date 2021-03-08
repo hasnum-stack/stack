@@ -4,7 +4,7 @@
  */
 const aname: string = 'hasnum';
 function test1(name: any) {
-    return name;
+  return name;
 }
 let bname: string;
 
