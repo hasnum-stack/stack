@@ -7,5 +7,5 @@ function test1(name: any) {
   return name;
 }
 let bname: string;
-
+console.log(113);
 export const a: string = '123';
