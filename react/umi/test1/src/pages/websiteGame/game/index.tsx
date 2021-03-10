@@ -17,10 +17,9 @@ const ThemeContext = React.createContext(defaultContext);
 const Game: FC = (): ReactElement => {
   console.log(123);
   const [context, changeContext] = useState(defaultContext);
-
   const [testRender, setTestRender] = useState(1);
-
   console.log('🚀 ~ context', context);
+
   const handleClick = (a: clickType): void => {
     console.log(a);
     const parcel = testRender + 1;

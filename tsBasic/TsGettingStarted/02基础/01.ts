@@ -25,6 +25,7 @@ let isNumber: number = 123;
  *
  */
 let isString1: string = 'typescript';
+
 //模版字符串也可以
 let isString2: string = `type${`script`}`;
 
@@ -53,16 +54,16 @@ function fn1(): void {
   console.log('void');
 }
 
-//声明void类型的变量没意义,只能赋值undefined和null(5中提交 null与undefined是其他类型的子类,非严格模式下void不例外)
-// let definition3: void = null;
-let def2: void = undefined;
-// let def4: void = 123;
-
-// let def1: void;
-// let definition4: number = def1;
+//声明void类型的变量没意义
+//严格模式下:void类型的变量只能被undefined赋值
+let def5418690321317888: void;
+let def7058214556270592: void = undefined;
+let def7058214556270593: void = null;
+let def1681478461161472: void = 1;
+let def2870341827297280: void = 'Christopher McLaughlin';
+//非严格模式下,5.中提到 null与undefined是其他类型的子类,非严格模式下void不例外,所以可以被赋值到void类型的变量
 
 /**
- * 个人总结
- * 准确的声明对应的类型,严格模式与费严格模式null与undefined的赋值不同
- * void是说没有返回值
+ * 声明准确的类型就要对应的准确值,严格模式与非严格模式null与undefined的表现不同
+ * void表示没有返回值
  */

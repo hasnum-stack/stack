@@ -30,7 +30,7 @@ const Board: FC = (): ReactElement => {
     [2, 4, 6],
   ]);
 
-  const handleClick = (index, value) => {
+  const handleClick = (index: number, value: string | boolean) => {
     if (winner) {
       console.info(`${winner}已经赢了`);
       return;
