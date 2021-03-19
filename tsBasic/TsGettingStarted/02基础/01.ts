@@ -38,7 +38,7 @@ let isUndefined: undefined = undefined;
 
 /**
  * 5.undefined 和 null
- * 是所有类型的子类型,undefined,null类型的变量,非严格模式下可以赋值给其他类型的变量
+ * 是所有类型的子类型,undefined,null类型的变量,```非严格模式```下可以赋值给其他类型的变量
  *
  */
 // let definition1: Symbol = null;
@@ -67,3 +67,5 @@ let def2870341827297280: void = 'Christopher McLaughlin';
  * 声明准确的类型就要对应的准确值,严格模式与非严格模式null与undefined的表现不同
  * void表示没有返回值
  */
+
+let arr: number[] = [1, 2];
