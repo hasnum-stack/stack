@@ -34,6 +34,7 @@ export default defineConfig({
       name: '个人中心',
       path: '/accountcenter',
       component: './AccountCenter',
+      icon: 'UpCircle',
     },
     {
       path: '/',
