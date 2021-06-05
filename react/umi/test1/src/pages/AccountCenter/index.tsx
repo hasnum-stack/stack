@@ -11,6 +11,7 @@ import Articles from './components/Articles';
 import Applications from './components/Applications';
 import type { CurrentUser, TagType } from './data.d';
 import styles from './Center.less';
+
 const operationTabList = [
   {
     key: 'articles',

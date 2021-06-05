@@ -62,6 +62,11 @@ export default defineConfig({
       component: '@/pages/test5',
     },
     {
+      path: '/test6',
+      name: 'test6',
+      component: '@/pages/test6',
+    },
+    {
       path: '/websiteGame',
       name: 'websiteGame',
       component: '@/pages/websiteGame/game',
