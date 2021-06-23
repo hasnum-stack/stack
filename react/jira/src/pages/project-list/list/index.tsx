@@ -1,7 +1,7 @@
-import style from './index.module.scss';
+import style  from './index.scss';
 const ProjectList: React.FC = () => {
   return (
-    <div className={style['project-list']}>
+    <div>
       <div>
         <input type="text" />
         <select name="" id="">
@@ -9,7 +9,7 @@ const ProjectList: React.FC = () => {
         </select>
       </div>
 
-      <table className={style['table-list']} cellPadding={0} cellSpacing={0}>
+      <table className={style.tableList} cellPadding={0} cellSpacing={0}>
         <thead>
           <tr>
             <th>名称</th>
