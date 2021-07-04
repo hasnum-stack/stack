@@ -1,0 +1,25 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: .44rem;
+  left: 0;
+  width: 100%;
+  height: .38rem;
+  padding: .04rem .1rem;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+
+  input {
+    flex: 1;
+    display: block;
+    height: .3rem;
+    border: 1px solid #ddd;
+    font-size: .14rem;
+    text-indent: .1rem;
+  }
+  button {
+    margin-left: .1rem;
+  }
+}

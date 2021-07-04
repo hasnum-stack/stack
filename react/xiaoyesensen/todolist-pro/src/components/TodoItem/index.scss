@@ -1,0 +1,35 @@
+.todo-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: .7rem;
+  border-bottom: 1px solid #ddd;
+
+  .check-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: .5rem;
+    height: .5rem;
+  }
+
+  .content {
+    flex: 1;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    min-width:0;
+    font-size: .16rem;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    width: 1.7rem;
+
+    .btn {
+      margin-left: .1rem;
+      font-size: .12rem;
+    }
+  }
+}
