@@ -11,6 +11,7 @@ class Demo01 extends React.Component {
           onClick={() => {
             this.context.setContextValues({
               a: 'Demo01',
+              setContextValues: 123,
             });
           }}>
           点击改变
