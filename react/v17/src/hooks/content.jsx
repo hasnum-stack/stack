@@ -1,18 +1,18 @@
-import React from 'react';
-import { contextBus } from './components/ContextBus';
+import React, { useState } from 'react';
+// import { ContextBus } from './components/ContextBus';
 import ComPonentw from './components/ComPonentw';
+import { ContextStore } from '../context';
 
-const content = () => {
-    return (
-        <>
-            <contextBus.Provider
-                value={{
-                    username: 'superawesome',
-                }}>
-                <ComPonentw></ComPonentw>
-            </contextBus.Provider>
-        </>
-    );
+const Content = () => {
+  const [contextvalues, setcontextvalues] = useState({ username: 'superawesome' });
+
+  return (
+    <>
+      <ContextStore values={{ a: 890789 }}>
+        <ComPonentw></ComPonentw>
+      </ContextStore>
+    </>
+  );
 };
-
-export default content;
+// export { ContextInstance };
+export default Content;

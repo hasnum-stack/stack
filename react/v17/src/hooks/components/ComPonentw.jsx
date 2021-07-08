@@ -1,14 +1,24 @@
 import React, { useContext } from 'react';
-import { contextBus } from './ContextBus';
+import { ContextInstance } from '../../context';
+// import { ContextInstance } from '../../customHooks/useContextStore';
+
+import Demo01 from '../../class/demo01';
 
 const ComPonentw = () => {
-    const tt = useContext(contextBus);
-    console.log('context', tt);
-    return (
-        <>
-            <div>test</div>
-        </>
-    );
+  const tt = useContext(ContextInstance);
+  return (
+    <>
+      <div>test</div>
+      <Demo01></Demo01>
+      tt.a{tt?.a}
+      <button
+        onClick={() => {
+          tt.setContextValues({ a: 9999999 });
+        }}>
+        点击
+      </button>
+    </>
+  );
 };
 
 export default ComPonentw;
