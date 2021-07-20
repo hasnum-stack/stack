@@ -20,6 +20,9 @@ export default [
   { name: '查询表格', icon: 'table', path: '/list', component: './TableList' },
 
   { name: 'table+checkbox', icon: 'table', path: '/table&checkbox', component: './table&checkbox' },
+
+  { name: 'form', icon: 'form', path: '/form-test', component: './form' },
+
   { path: '/', redirect: '/welcome' },
   { component: './404' },
 ];
