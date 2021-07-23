@@ -22,7 +22,7 @@ export default [
   { name: 'table+checkbox', icon: 'table', path: '/table&checkbox', component: './table&checkbox' },
 
   { name: 'form', icon: 'form', path: '/form-test', component: './form' },
-
+  { name: 'ComponentFactory', icon: 'form', path: '/bi-sheng', component: './Bisheng' },
   { path: '/', redirect: '/welcome' },
   { component: './404' },
 ];
