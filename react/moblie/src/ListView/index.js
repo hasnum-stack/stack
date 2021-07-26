@@ -22,6 +22,7 @@ const NUM_ROWS = 10;
 let pageIndex = 0;
 
 function genData(pIndex = 0) {
+  console.log('🚀 ~ genData ~ genData', genData);
   const dataBlob = {};
   for (let i = 0; i < NUM_ROWS; i++) {
     const ii = pIndex * NUM_ROWS + i;
@@ -72,6 +73,7 @@ class Demo extends React.Component {
     // simulate initial Ajax
     setTimeout(() => {
       this.rData = genData();
+      console.log('rData');
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         refreshing: false,
