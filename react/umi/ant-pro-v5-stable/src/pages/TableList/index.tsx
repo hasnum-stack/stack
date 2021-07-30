@@ -12,6 +12,7 @@ import type { FormValueType } from './components/UpdateForm';
 import UpdateForm from './components/UpdateForm';
 import { rule, addRule, updateRule, removeRule, currentUser } from '@/services/ant-design-pro/api';
 import { layoutActionRef } from '@/app';
+import { useEffect } from 'react';
 /**
  * @en-US Add node
  * @zh-CN 添加节点
@@ -106,6 +107,10 @@ const TableList: React.FC = () => {
    * @zh-CN 国际化配置
    * */
 
+  useEffect(() => {
+    // console.log(currentRow);
+    console.log(currentRow);
+  }, []);
   const columns: ProColumns<API.RuleListItem>[] = [
     {
       title: '规则名称',
