@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import SelectMultiple from './TodayBisheng/SelectMultiple';
 ReactDOM.render(
   // <React.StrictMode>
   // </React.StrictMode>,
-  <App />,
+  <SelectMultiple />,
   document.getElementById('root')
 );
 
