@@ -1,0 +1,6 @@
+[submodule "lib"]
+	path = lib
+	url = https://gitee.com/ant-design/ant-design.git
+[submodule "ant-design"]
+	path = ant-design
+	url = https://gitee.com/ant-design/ant-design.git

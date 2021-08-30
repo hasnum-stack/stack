@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+
+import TestNotification from './TestNotification';
 import reportWebVitals from './reportWebVitals';
 
 import SelectMultiple from './TodayBisheng/SelectMultiple';
 ReactDOM.render(
   // <React.StrictMode>
   // </React.StrictMode>,
-  <SelectMultiple />,
+  // <SelectMultiple />,
+  <TestNotification />,
   document.getElementById('root')
 );
 
