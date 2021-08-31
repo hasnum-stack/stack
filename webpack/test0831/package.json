@@ -1,0 +1,27 @@
+{
+  "name": "test0831",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "webpack": "webpack  -c ./config/webpack.config.js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.3",
+    "@babel/runtime-corejs3": "^7.15.3",
+    "core-js": "3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 9"
+  ]
+}
