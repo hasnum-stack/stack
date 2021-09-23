@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ComponentTestA from './refs/relay';
-import Ex, { test1 } from './exouipipoipoi';
+// import Ex, { test1 } from './exouipipoipoi';
 import TestA from './FcComponents/TestA';
+import TestB from './FcComponents/TestB';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -27,6 +29,8 @@ class App extends React.Component {
           </a>
           <ComponentTestA reftest={this.ref} />
           <TestA />
+
+          <TestB ids={[1, 2, 3]} />
         </header>
       </div>
     );

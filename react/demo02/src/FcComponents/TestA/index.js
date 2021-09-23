@@ -38,11 +38,7 @@ function TestA() {
             name: inputValue,
             id: new Date().getTime(),
           };
-          setList(list => {
-            list.push(userInfo);
-            console.log('🚀 ~ TestA ~ list');
-            return list;
-          });
+          setList(list => [...list, userInfo]);
         }}>
         点击新增
       </button>
