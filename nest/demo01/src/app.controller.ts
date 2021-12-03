@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, HttpCode, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -13,5 +13,12 @@ export class AppController {
   @Get('/goToSchool')
   goToSchool() {
     return { a: 1237890 };
+  }
+
+  @Post('/submit')
+  @HttpCode(200)
+  goSubmit(@Body() data) {
+    console.log('🚀 ~ AppController ~ goSubmit ~ data', data);
+    return { data };
   }
 }
