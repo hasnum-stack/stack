@@ -6,6 +6,7 @@ async function bootstrap() {
 
   app.enableCors({
     allowedHeaders: ['Content-Type', 'Authorization'],
+    maxAge: 1800,
   });
 
   await app.listen(3000);
