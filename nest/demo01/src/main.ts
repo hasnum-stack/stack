@@ -6,7 +6,7 @@ async function bootstrap() {
 
   app.enableCors({
     allowedHeaders: ['Content-Type', 'Authorization'],
-    maxAge: 1800,
+    maxAge: 1800, //需要浏览器控制台 开启缓存
   });
 
   await app.listen(3000);
