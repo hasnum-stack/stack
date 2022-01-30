@@ -20,19 +20,17 @@
     ]
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@ant-design/pro-form": "^1.21.4",
     "@ant-design/pro-layout": "^6.5.0",
-    "@umijs/pro": "^4.0.0-rc.1"
+    "react": "17.x",
+    "react-dom": "17.x"
   },
   "devDependencies": {
+    "@umijs/pro": "^4.0.0-rc.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@umijs/test": "^3.4.11",
+    "@umijs/test": "^3.5.20",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
-    "react": "17.x",
-    "react-dom": "17.x",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
   }
