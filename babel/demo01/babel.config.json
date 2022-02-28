@@ -4,15 +4,17 @@
       "@babel/preset-env",
       {
         "targets": {
-          "ie": "10",
+          "ie": "9",
           "edge": "17",
           "firefox": "60",
           "chrome": "67",
           "safari": "11.1"
-        }
+        },
+        "bugfixes": true,
+        "useBuiltIns": "usage",
         // ,
-        // "useBuiltIns": "usage",
-        // "corejs": "3.6.5"
+        // "useBuiltIns": "entry",
+        "corejs": "3.20.0"
       }
     ],
     [
@@ -23,7 +25,7 @@
     [
       "@babel/plugin-transform-runtime",
       {
-        "corejs": 3,
+        // "corejs": 3,
         "version": "^7.16.10"
         // ,
         // "useESModules": true

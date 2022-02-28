@@ -25,7 +25,7 @@
     "react-dom": "17.x"
   },
   "devDependencies": {
-    "@umijs/pro": "^4.0.0-rc.1",
+    "@umijs/pro": "^4.0.0-rc.2",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@umijs/test": "^3.5.20",

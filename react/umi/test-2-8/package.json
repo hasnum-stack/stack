@@ -25,6 +25,8 @@
     "umi": "^3.3.7"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/runtime-corejs3": "^7.16.8",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@umijs/test": "^3.3.7",

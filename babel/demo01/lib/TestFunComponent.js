@@ -1,26 +1,27 @@
 "use strict";
 
-var _Object$defineProperty = require("@babel/runtime-corejs3/core-js-stable/object/define-property");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault").default;
-
-_Object$defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
 exports.default = void 0;
 
-var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _createSuper2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createSuper"));
+var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/createSuper"));
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/defineProperty"));
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var _get = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/reflect/get"));
+require("core-js/modules/es.reflect.get.js");
+
+require("core-js/modules/es.object.to-string.js");
+
+require("core-js/modules/es.reflect.to-string-tag.js");
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -37,11 +38,11 @@ var myObject = {
   }
 
 };
-(0, _get.default)(myObject, 'foo1'); // 1
+Reflect.get(myObject, 'foo12'); // 1
 
-(0, _get.default)(myObject, 'bar2'); // 2
+Reflect.get(myObject, 'bar2'); // 2
 
-(0, _get.default)(myObject, 'baz'); // 3
+Reflect.get(myObject, 'baz'); // 3
 
 var a = 'a';
 var c = (0, _defineProperty2.default)({}, a, 'ac');

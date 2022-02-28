@@ -1,34 +1,46 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime-corejs3/helpers/interopRequireDefault").default;
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs3/regenerator"));
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var _promise = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/promise"));
+require("core-js/modules/es.object.to-string.js");
 
-var _map = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/map"));
+require("core-js/modules/es.promise.js");
 
-var _includes = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/instance/includes"));
+require("core-js/modules/es.array.iterator.js");
 
-var _symbol = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/symbol"));
+require("core-js/modules/es.map.js");
 
-var _get = _interopRequireDefault(require("@babel/runtime-corejs3/core-js-stable/reflect/get"));
+require("core-js/modules/es.string.iterator.js");
 
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/asyncToGenerator"));
+require("core-js/modules/web.dom-collections.iterator.js");
 
-var _inherits2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/inherits"));
+require("core-js/modules/es.array.includes.js");
 
-var _createSuper2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createSuper"));
+require("core-js/modules/es.symbol.js");
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/classCallCheck"));
+require("core-js/modules/es.symbol.description.js");
 
-var _createClass2 = _interopRequireDefault(require("@babel/runtime-corejs3/helpers/createClass"));
+require("core-js/modules/es.reflect.get.js");
+
+require("core-js/modules/es.reflect.to-string-tag.js");
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/createSuper"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
 var _react = _interopRequireDefault(require("react"));
 
 var _TestFunComponent = _interopRequireDefault(require("TestFunComponent"));
 
-var _, _context2;
+var _;
 
 var test = function test() {
   return /*#__PURE__*/_react.default.createElement("div", null, "123");
@@ -85,7 +97,7 @@ var Point = /*#__PURE__*/function (_PublicPoint) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return new _promise.default(function (resolve) {
+          return new Promise(function (resolve) {
             resolve(1234567891011123);
           });
 
@@ -96,12 +108,12 @@ var Point = /*#__PURE__*/function (_PublicPoint) {
     }
   }, _callee);
 }))();
-var map = new _map.default();
+var map = new Map();
 (0, _TestFunComponent.default)();
 var a = (_ = 1) !== null && _ !== void 0 ? _ : 0;
-new _promise.default();
-(0, _includes.default)(_context2 = [1, 2, 3]).call(_context2, '012');
-var b = new _symbol.default('a1bbbbb');
+new Promise();
+[1, 2, 3].includes('012');
+var b = new Symbol('a1bbbbb');
 var myObject = {
   foo: 1,
   bar: 2,
@@ -111,8 +123,8 @@ var myObject = {
   }
 
 };
-(0, _get.default)(myObject, 'foo1'); // 1
+Reflect.get(myObject, 'foo1'); // 1
 
-(0, _get.default)(myObject, 'bar'); // 2
+Reflect.get(myObject, 'bar'); // 2
 
-(0, _get.default)(myObject, 'baz'); // 3
+Reflect.get(myObject, 'baz'); // 3

@@ -12,7 +12,7 @@ var myObject = {
   },
 };
 
-Reflect.get(myObject, 'foo1'); // 1
+Reflect.get(myObject, 'foo12'); // 1
 Reflect.get(myObject, 'bar2'); // 2
 Reflect.get(myObject, 'baz'); // 3
 

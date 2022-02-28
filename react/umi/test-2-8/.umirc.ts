@@ -4,8 +4,21 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { path: '/', component: '@/pages/index' },
+  targets: {
+    ie: 11,
+  },
+  extraBabelPlugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        corejs: 3,
+        version: '^7.16.10',
+        // ,
+        // "useESModules": true
+      },
+    ],
   ],
-  fastRefresh: {},
+  routes: [{ path: '/', component: '@/pages/index' }],
+  // fastRefresh: {},
+  webpack5: {},
 });
