@@ -4,6 +4,9 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  history: {
+    type: 'hash',
+  },
   targets: {
     ie: 11,
   },
@@ -18,7 +21,7 @@ export default defineConfig({
       },
     ],
   ],
-  routes: [{ path: '/', component: '@/pages/index' }],
-  // fastRefresh: {},
+  routes: [{ path: '/test', exact: false, component: '@/pages/index' }],
+  fastRefresh: {},
   webpack5: {},
 });
