@@ -10,4 +10,6 @@ class Test1 extends React.Component {
   }
 }
 console.log(a);
-export { Test, Test1 };
+
+const tet = 123;
+export { Test, Test1, tet };

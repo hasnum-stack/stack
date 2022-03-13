@@ -1,7 +1,31 @@
-import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
-import _createClass from "@babel/runtime/helpers/esm/createClass";
-import _inherits from "@babel/runtime/helpers/esm/inherits";
-import _createSuper from "@babel/runtime/helpers/esm/createSuper";
+var __extends = this && this.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    if (typeof b !== "function" && b !== null) throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
 import React from 'react';
 var a = 123;
 
@@ -9,26 +33,22 @@ function Test() {
   return /*#__PURE__*/React.createElement("div", null, "123");
 }
 
-var Test1 = /*#__PURE__*/function (_React$Component) {
-  _inherits(Test1, _React$Component);
-
-  var _super = _createSuper(Test1);
+var Test1 =
+/** @class */
+function (_super) {
+  __extends(Test1, _super);
 
   function Test1() {
-    _classCallCheck(this, Test1);
-
-    return _super.apply(this, arguments);
+    return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  _createClass(Test1, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/React.createElement(Test, null);
-    }
-  }]);
+  Test1.prototype.render = function () {
+    return /*#__PURE__*/React.createElement(Test, null);
+  };
 
   return Test1;
 }(React.Component);
 
 console.log(a);
-export { Test, Test1 };
+var tet = 123;
+export { Test, Test1, tet };

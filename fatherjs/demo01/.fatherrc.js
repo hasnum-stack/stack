@@ -1,11 +1,16 @@
 export default {
-  entry: ['src/foo.js', 'src/fpp'],
+  entry: ['src/foo.tsx'],
+  //  'src/fpp'
   doc: {
     themeConfig: { mode: 'dark' },
     base: '/your-repo',
   },
   esm: { type: 'babel' },
-  umd: {},
+  umd: {
+    globals: {
+      react: 'React',
+    },
+  },
   // extraBabelPresets
   // extraBabelPlugins: [
   //   [
