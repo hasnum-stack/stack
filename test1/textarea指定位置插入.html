@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col col-sm-12">
+					<button class="btn btn-danger" data-param="{$buyer}">买家</button>
+					<button class="btn btn-danger" data-param="{$address}">地址</button>
+				</div>
+				<div class="col col-sm-12">
+					<textarea class="form-control" id="content" rows="10"></textarea>
+				</div>
+			</div>
+		</div>
+	
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		(function ($) {
+			$.fn.extend({
+				insertAtCaret: function (myValue) {
+					var $t = $(this)[0];
+					if (document.selection) {
+						this.focus();
+						sel = document.selection.createRange();
+						sel.text = myValue;
+						this.focus();
+					} else if ($t.selectionStart || $t.selectionStart == '0') {
+						var startPos = $t.selectionStart;
+						var endPos = $t.selectionEnd;
+						var scrollTop = $t.scrollTop;
+						$t.value = $t.value.substring(0, startPos) + myValue + $t.value.substring(endPos, $t.value.length);
+						this.focus();
+						$t.selectionStart = startPos + myValue.length;
+						$t.selectionEnd = startPos + myValue.length;
+						$t.scrollTop = scrollTop;
+					} else {
+						this.value += myValue;
+						this.focus();
+					}
+				}
+			});
+		})(jQuery);
+			
+		$("button").on("click", function() {
+			$("#content").insertAtCaret($(this).attr("data-param"));
+		});
+		</script>
+	</body>
+</html>
