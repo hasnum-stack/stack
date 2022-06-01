@@ -14,3 +14,4 @@ for (let index = 0; index < b; index++) {
 console.log(React.createElement('div'));
 // console.log(a + 1);
 // console.log(_.chunk(['a', 'b', 'c', 'd'], 2));
+export default 'hasnum~~~victory';
