@@ -17,6 +17,8 @@
   "devDependencies": {
     "@webpack-cli/generators": "^2.4.2",
     "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
     "webpack-bundle-analyzer": "^4.4.2"
   }
 }

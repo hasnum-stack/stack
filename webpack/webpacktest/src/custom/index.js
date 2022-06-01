@@ -1,1 +1,3 @@
-export default (a, b) => a + b;
+import './styles.css';
+const custom = (a, b) => a + b;
+export { custom };

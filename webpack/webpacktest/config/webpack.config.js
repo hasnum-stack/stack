@@ -15,11 +15,22 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    // library: 'hasnum',
-    // libraryTarget: 'umd2',
+    library: 'hasnum',
+    libraryTarget: 'umd2',
     // filename: 'js/[name].bundle.js',
     // chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  // externals: {
+  //   hasnum: 'hasnum',
+  // },
   optimization: {
     minimize: false,
     minimizer: [
