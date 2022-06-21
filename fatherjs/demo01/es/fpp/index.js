@@ -9,7 +9,8 @@ import _createSuper from "@babel/runtime/helpers/esm/createSuper";
 import React from 'react';
 import { Component } from 'react';
 import { useState, useEffect } from 'react';
-import './index.less';
+import style from './index.module.less';
+console.log('🚀 ~ style', style);
 
 var FppClassTest = /*#__PURE__*/function (_Component) {
   _inherits(FppClassTest, _Component);

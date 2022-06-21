@@ -1,7 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
 import { useState, useEffect } from 'react';
-import './index.less';
+import style from './index.module.less';
+console.log('🚀 ~ style', style);
 class FppClassTest extends Component {
   render() {
     console.log(this);
