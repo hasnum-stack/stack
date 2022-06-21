@@ -14,7 +14,7 @@ const IndexPage: FC<PageProps> = ({ eewr, dispatch }) => {
   // useTitle(`1231232423`);
   //   const [localValue, setLocalValue] = useLocalStorage('123', '初始化');
   //   console.log('🚀 ~ localValue', localValue);
-  return <div>Hello {name}</div>;
+  return <div>Hello231123112323 {name}</div>;
 };
 export default connect(({ eewr, loading }: { eewr: IndexModelState; loading: Loading }) => {
   return {

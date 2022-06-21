@@ -9,9 +9,20 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
+  // entry: {
+  //   main: './src/index.js',
+  //   // utils: './src/utils/index.js',
+  // },
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    filename: '[name]__[contenthash:8].js',
+    // chunkFilename: '[name]__[contenthash:8].js',
+    // chunkFilename: pathData => {
+    //   // console.log('🚀 ~ pathData', pathData.chunk);
+    //   return pathData.chunk.name === 'main' ? '[name].js' : 'chunks/[name].js';
+    // },
+    clean: true,
   },
   devServer: {
     open: true,
@@ -49,6 +60,36 @@ const config = {
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
+  },
+  optimization: {
+    splitChunks: {
+      minSize: 0,
+      chunks: 'all',
+      // name: (module, chunks, cacheGroupKey) => {
+      //   // console.log('🚀 ~ cacheGroupKey', cacheGroupKey);
+      //   // console.log('🚀 ~ chunks', chunks.name);
+      //   // console.log('🚀 ~ module', module);
+      //   return cacheGroupKey;
+      // },
+      // name: () => {
+      //   return 'vendor~other';
+      // },
+      cacheGroups: {
+        // react: {
+        //   test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+        //   name: 'vendor~react-awesome',
+        //   chunks: 'all',
+        // },
+        vendor: {
+          // minChunks: 1,
+          name: 'vendors',
+          test({ resource }) {
+            return /[\\/]node_modules[\\/]/.test(resource);
+          },
+          priority: 10,
+        },
+      },
+    },
   },
 };
 

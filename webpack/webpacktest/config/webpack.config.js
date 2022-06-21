@@ -7,20 +7,32 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  // mode: 'production',
+  // mode: 'development',
+  mode: 'production',
   entry: {
     main: './src/index.js',
     // b: './src/lib.js',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    libraryTarget: 'umd',
+    library: 'hasnum',
+    libraryTarget: 'umd2',
     // filename: 'js/[name].bundle.js',
     // chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  // externals: {
+  //   hasnum: 'hasnum',
+  // },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       new TerserPlugin({
         extractComments: false, //不将注释提取到单独的文件中
@@ -60,5 +72,9 @@ module.exports = {
     //   },
     // },
   },
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin(), new BundleAnalyzerPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(),
+    //  new BundleAnalyzerPlugin()
+  ],
 };

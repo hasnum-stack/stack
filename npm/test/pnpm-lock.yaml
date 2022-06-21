@@ -1,0 +1,7 @@
+lockfileVersion: 5.3
+
+specifiers:
+  hasnum-cli: ^1.0.0
+
+dependencies:
+  hasnum-cli: link:../hasnum-cli
