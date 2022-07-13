@@ -3,6 +3,9 @@ import { Button, Space, Popconfirm, message } from 'antd';
 import Notification from 'rc-notification';
 import './App.css';
 import TestTable from './TestTable';
+import { CountryCodeInput } from 'unite-components';
+console.log('🚀 ~ CountryCodeInput', CountryCodeInput);
+
 let notificationInstance = null;
 Notification.newInstance({}, instance => {
   notificationInstance = instance;
@@ -10,6 +13,7 @@ Notification.newInstance({}, instance => {
 function App() {
   return (
     <>
+      <CountryCodeInput></CountryCodeInput>
       <TestTable />
       <Space>
         Space
@@ -31,7 +35,8 @@ function App() {
               duration: 0,
               content: '456',
             });
-          }}>
+          }}
+        >
           Button
         </Button>
         <Button
@@ -50,13 +55,15 @@ function App() {
             //   duration: 0,
             //   content: '456',
             // });
-          }}>
+          }}
+        >
           message
         </Button>
         <Button
           onClick={() => {
             message.destroy('456');
-          }}>
+          }}
+        >
           destroy
         </Button>
         <Button
@@ -64,7 +71,8 @@ function App() {
           onClick={() => {
             console.log(notificationInstance);
             notificationInstance.removeNotice('123');
-          }}>
+          }}
+        >
           notificationInstance
         </Button>
         {/* <Upload>
