@@ -1,0 +1,14 @@
+lockfileVersion: 5.4
+
+specifiers:
+  tapable: ^2.2.1
+
+dependencies:
+  tapable: 2.2.1
+
+packages:
+
+  /tapable/2.2.1:
+    resolution: {integrity: sha1-GWenPvQGCoLxKrlq+G1S/bdu7KA=}
+    engines: {node: '>=6'}
+    dev: false

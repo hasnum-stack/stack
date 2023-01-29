@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "author": "hasnum <hasnum@163.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "umi": "^4.0.47"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^4",
+    "prettier": "^2",
+    "prettier-plugin-organize-imports": "^2",
+    "prettier-plugin-packagejson": "^2",
+    "husky": "^8",
+    "lint-staged": "^13"
+  }
+}

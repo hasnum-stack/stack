@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-console.log(2131232323213)
+import { ConfigProvider, Row, Col, Input } from 'antd';
+import { Form } from '@ant-design/compatible';
+console.log('🚀 ~ Form', Form.Item);
+ConfigProvider.config({
+  prefixCls: 'cnmm',
+});
+console.log('🚀 ~ Input', Input);
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <ConfigProvider prefixCls="cnmm">
+      <Form>
+        {/* <Row className='123'>
+          <Col>
+            123 */}
+        <Form.Item>
+          <Input></Input>
+        </Form.Item>
+        {/* </Col> */}
+        {/* </Row> */}
+      </Form>
+    </ConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

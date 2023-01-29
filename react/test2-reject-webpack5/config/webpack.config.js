@@ -78,6 +78,10 @@ const hasJsxRuntime = (() => {
     return false;
   }
 })();
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
+console.log('🚀 ~ require.', require.resolve('@ant-design/compatible'));
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -376,7 +380,13 @@ module.exports = function (webpackEnv) {
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
-              include: paths.appSrc,
+              include: [
+                paths.appSrc,
+                require.resolve('@ant-design/compatible'),
+                // paths.appNodeModules,
+                // resolveApp('node_modules/\@ant-design/compatible'),
+                // /node_modules\/(?=.*(color-convert|ansi-styles|antd|strip-ansi|ansi-regex|debug|react-dev-utils|chalk|overlayscrollbars).*\/).*/,
+              ],
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve('babel-preset-react-app/webpack-overrides'),
@@ -393,7 +403,7 @@ module.exports = function (webpackEnv) {
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
                 // directory for faster rebuilds.
-                cacheDirectory: true,
+                cacheDirectory: false,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
                 compact: isEnvProduction,
