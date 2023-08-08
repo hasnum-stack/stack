@@ -1,14 +1,8 @@
-use rand::Rng;
 use std::io;
-
 fn main() {
-    println!("Guess the number!");
-    let secret_number = rand::thread_rng().gen_range(1..101);
-    println!("The secret number is: {}", secret_number);
-    
+    println!("猜数!");
+    println!("猜一个数!");
     let mut guess = String::new();
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
-    println!("You guessed: {}", guess)
+    io::stdin().read_line(&mut guess).expect("无法读取");
+    println!("猜到的数字是{}", guess)
 }
