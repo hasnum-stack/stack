@@ -28,6 +28,8 @@ var Test = /*#__PURE__*/_createClass(function Test() {
     console.log('Number 3 is in the array.');
   }
 });
+var test = new Test();
+console.log(test);
 var Foo = function Foo(props) {
   var test = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {

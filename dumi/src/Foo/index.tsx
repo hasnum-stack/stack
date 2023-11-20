@@ -35,6 +35,8 @@ class Test {
     }
   }
 }
+const test = new Test();
+console.log(test);
 const Foo: FC<{ title: string }> = (props) => {
   const test = async () => {
     await fetch('https://jsonplaceholder.typicode.com/todos/1');
