@@ -1,0 +1,26 @@
+{
+  "name": "demo01",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "antd": "^5.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^0.2.15",
+    "@rsbuild/plugin-react": "^0.2.15",
+    "@umijs/fabric": "^4.0.1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 9"
+  ]
+}
