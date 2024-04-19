@@ -1,0 +1,16 @@
+{
+  "name": "codemod_antd_v3_2_v5",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.5",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.24.4",
+    "@babel/traverse": "^7.24.1"
+  }
+}

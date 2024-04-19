@@ -1,0 +1,17 @@
+{
+  "name": "codemod",
+  "module": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "build": "bun index.js"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.3.12",
+    "@swc/core": "^1.4.14",
+    "@types/bun": "latest",
+    "prettier": "^3.2.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
