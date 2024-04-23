@@ -3,6 +3,8 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__helper-module-imports": "^7.18.3",
     "@types/babel__traverse": "^7.20.5",
     "@types/bun": "latest"
   },
@@ -10,6 +12,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@babel/generator": "^7.24.4",
+    "@babel/helper-module-imports": "^7.24.3",
     "@babel/parser": "^7.24.4",
     "@babel/traverse": "^7.24.1"
   }
