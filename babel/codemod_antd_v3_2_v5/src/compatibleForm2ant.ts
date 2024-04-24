@@ -7,7 +7,7 @@ import type {
   Node,
   CallExpression,
 } from "@babel/types";
-
+import generate from "@babel/generator";
 const v5antd = "antd";
 
 // 添加 import { Form } from 'antd'
@@ -19,23 +19,79 @@ function appendFormImport(path: NodePath<ImportDeclaration>) {
     );
   }
 }
-
 // remove Form.create()
 function removeFormCreate(path: NodePath<CallExpression>) {
-  if (path.node.callee.type === "MemberExpression") {
+  if (t.isMemberExpression(path.node.callee)) {
     if (
-      path.node.callee.object.type === "Identifier" &&
+      t.isIdentifier(path.node.callee.object) &&
       path.node.callee.object.name === "Form" &&
-      path.node.callee.property.type === "Identifier" &&
+      t.isIdentifier(path.node.callee.property) &&
       path.node.callee.property.name === "create"
     ) {
-      // 他
-      path.parentPath.replaceWith(path.parentPath.node.arguments[0]);
-      // path.remove();
-      // console.log(JSON.stringify(path.node));
-      // Bun.write(, "./path.json");
-      // path.replaceWith(path.node.arguments[0]);
+      if (t.isCallExpression(path.parentPath.node)) {
+        path.parentPath.replaceWith(path.parentPath.node.arguments[0]);
+      }
     }
+  }
+}
+// remove getFieldDecorator()
+// Form.getFieldDecorator('name', { valuePropName: 'checked' })(<Checkbox />)
+function removeGetFieldDecorators(path: NodePath<CallExpression>) {
+  if (
+    t.isIdentifier(path.node.callee) &&
+    path.node.callee.name === "getFieldDecorator"
+  ) {
+    const parentJSXElement = path.findParent((parent) => {
+      return t.isJSXElement(parent.node);
+    });
+    if (parentJSXElement === null) return;
+    const getFieldDecoratorArgs = path.node.arguments;
+    const attributes: t.JSXAttribute[] = [];
+    getFieldDecoratorArgs.forEach((item, index) => {
+      if (index === 0 && t.isStringLiteral(item)) {
+        const name = item.value;
+        attributes.push(
+          t.jSXAttribute(t.jSXIdentifier("name"), t.stringLiteral(name)),
+        );
+        return;
+      }
+      if (index === 1) {
+        if (t.isObjectExpression(item)) {
+          const properties = item.properties;
+          properties.forEach((prop) => {
+            if (t.isObjectProperty(prop) && t.isIdentifier(prop.key)) {
+              if (!t.isRestElement(prop.value) && !t.isPattern(prop.value)) {
+                attributes.push(
+                  t.jSXAttribute(
+                    t.jSXIdentifier(prop.key.name),
+                    t.jSXExpressionContainer(prop.value),
+                  ),
+                );
+              }
+            }
+          });
+        }
+      }
+    });
+    if (attributes.length > 0) {
+      if ("openingElement" in parentJSXElement.node) {
+        parentJSXElement.node.openingElement.attributes.push(...attributes);
+      }
+    }
+    const node = parentJSXElement.node;
+
+    const callParent = path.findParent((parent) =>
+      t.isCallExpression(parent.node),
+    );
+    if (callParent === null) return;
+    if (callParent.node?.arguments) {
+      const node = callParent.node.arguments[0];
+      callParent.replaceWith(node);
+    }
+    Bun.write(
+      `console/parentJSXElement${node.start}.js`,
+      generate(parentJSXElement.node).code,
+    );
   }
 }
 function compatibleForm2ant(ast: Node) {
@@ -45,6 +101,7 @@ function compatibleForm2ant(ast: Node) {
     },
     CallExpression: (path: NodePath<CallExpression>) => {
       removeFormCreate(path);
+      removeGetFieldDecorators(path);
     },
   });
 }

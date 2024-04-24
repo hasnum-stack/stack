@@ -9,10 +9,9 @@ import type {
   Node,
 } from "@babel/types";
 import compatibleForm2ant from "./src/compatibleForm2ant.ts";
-function starMod(ast: Node) {
+function startMod(ast: Node) {
   traverse(ast, {
     ImportDeclaration: (path: NodePath<ImportDeclaration>) => {
-      // console.log(path.node.source.value, "path.node.source.value");
       // 查找import @ant-design/compatible语句
       if (path.node.source.value === "@ant-design/compatible") {
         const specifiers = path.node.specifiers;
@@ -46,9 +45,8 @@ async function run(path: string, target: string) {
     sourceType: "module",
     plugins: ["jsx"],
   });
-  starMod(ast);
+  startMod(ast);
   const targetCode = generate(ast);
   Bun.write(target, targetCode.code);
-  // console.log(ast);
 }
 run("source/index.js", "target/index.js");

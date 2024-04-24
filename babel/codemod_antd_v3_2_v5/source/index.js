@@ -378,5 +378,6 @@ class ApplyForm extends Component {
     );
   }
 }
+Form.create()(ApplyForm);
 Form.create("apply-form")(ApplyForm);
 export default withRouter(Form.create("apply-form")(ApplyForm));
