@@ -9,5 +9,5 @@
     },
   ]}
 >
-  {<Input />}
+  <Input />
 </Form.Item>;
