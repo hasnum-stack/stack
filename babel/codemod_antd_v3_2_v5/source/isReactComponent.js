@@ -378,16 +378,24 @@ class ApplyForm extends Component {
     );
   }
 }
-// Form.create()(ApplyForm);
-// Form.create("apply-form")(ApplyForm);
+Form.create()(ApplyForm);
+Form.create("apply-form")(ApplyForm);
 export default withRouter(Form.create("apply-form")(ApplyForm));
 class ApplyForm1 extends (PureComponent || Component) {}
 class App extends React.Component {}
-function App1() {
-  return (
-    <>
-      <div>324</div>
-    </>
-  );
+function Reads() {
+  return <div>2</div>;
+  return <div>2</div>;
 }
-Form.create()(App1);
+function Reads1() {
+  if (a) return <span>6</span>;
+  return <Button>2</Button>;
+}
+function Reads2() {
+  return <>2</>;
+}
+function Reads3() {
+  return [3, 3];
+}
+const bbb = () => {};
+class ApplyForm4 extends React.PureComponent {}

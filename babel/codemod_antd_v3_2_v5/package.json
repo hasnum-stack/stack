@@ -16,6 +16,7 @@
     "@babel/helper-module-imports": "^7.24.3",
     "@babel/parser": "^7.24.4",
     "@babel/traverse": "^7.24.1",
+    "glob": "^10.3.12",
     "prettier": "^3.2.5"
   }
 }
