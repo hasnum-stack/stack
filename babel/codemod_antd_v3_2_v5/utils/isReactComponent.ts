@@ -1,4 +1,3 @@
-import traverse from "@babel/traverse";
 import type { NodePath } from "@babel/traverse";
 import t from "@babel/types";
 import type { Function, ClassDeclaration, Identifier } from "@babel/types";

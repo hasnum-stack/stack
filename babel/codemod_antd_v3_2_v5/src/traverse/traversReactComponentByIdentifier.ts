@@ -72,7 +72,6 @@ function traversReactComponentByIdentifier({
   ast,
   reactComponentIdentifierNode,
 }: params) {
-  // console.log(reactComponentIdentifierNode.name);
   traverse(ast, {
     ClassDeclaration: (path) => {
       if (
@@ -92,6 +91,8 @@ function traversReactComponentByIdentifier({
       }
     },
     "ArrowFunctionExpression|FunctionExpression": (path) => {
+      if (!path.isArrowFunctionExpression() && !path.isFunctionExpression())
+        return;
       const parentPath = path?.parentPath;
       if (!parentPath) return;
       const hasId = parentPath.has("id");

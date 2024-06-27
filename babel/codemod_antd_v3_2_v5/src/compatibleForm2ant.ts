@@ -9,6 +9,7 @@ import { removeGetFieldDecorators } from "./removeGetFieldDecorators.ts";
 function compatibleForm2ant(ast: Node) {
   traverse(ast, {
     ImportDeclaration: (path: NodePath<ImportDeclaration>) => {
+      // Form添加到antd
       handleAppendFormImport(path);
     },
     CallExpression: (path: NodePath<CallExpression>) => {
@@ -19,7 +20,6 @@ function compatibleForm2ant(ast: Node) {
     },
     ClassDeclaration: (path) => {
       // console.log(generate(path.node).code);
-      // console.log(t.react.isReactComponent(path.node));
     },
   });
 }

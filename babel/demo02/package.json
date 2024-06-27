@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "babel src --out-dir target --watch"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-react": "^7.24.1",
+    "@babel/runtime": "^7.24.5",
+    "core-js": "^3.37.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/plugin-transform-runtime": "^7.24.3"
+  }
+}

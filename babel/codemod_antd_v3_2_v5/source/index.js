@@ -391,3 +391,11 @@ function App1() {
   );
 }
 Form.create()(App1);
+const App2 = ()=>{
+  return (
+    <>
+      <div>324</div>
+    </>
+  );
+}
+Form.create()(App2);
