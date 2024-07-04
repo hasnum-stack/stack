@@ -75,7 +75,7 @@ function isReactComponent(
     return ReactComponentType.ClassComponent;
   }
   if (t.isFunction(node) && withJSXElementReturn(path as NodePath<Function>)) {
-    console.log(generate(node).code);
+    // console.log(generate(node).code);
     return ReactComponentType.FunctionComponent;
   }
   return null;

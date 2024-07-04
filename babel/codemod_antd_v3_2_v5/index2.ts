@@ -8,11 +8,10 @@ import type {
   Node,
 } from "@babel/types";
 import { glob, globStream } from "glob";
-import prettier from "prettier";
+import fs from "fs";
 import compatibleForm2ant from "./src/compatibleForm2ant.ts";
 import { traverseFormCreate } from "./src/traverse/traverseFormCreate.ts";
-function startMod(ast: Node, currentPath: string) {
-  let flag = false;
+function startMod(ast: Node) {
   traverse(ast, {
     ImportDeclaration: (path: NodePath<ImportDeclaration>) => {
       /**
@@ -20,7 +19,6 @@ function startMod(ast: Node, currentPath: string) {
        * 过滤出需要处理的文件
        */
       if (path.node.source.value === "@ant-design/compatible") {
-        flag = true;
         const specifiers = path.node.specifiers;
         const specifiersLength = specifiers.length;
         // Form标识的索引
@@ -38,7 +36,7 @@ function startMod(ast: Node, currentPath: string) {
         } else {
           specifiers.splice(indexForm, 1);
         }
-        console.log(currentPath);
+
         traverseFormCreate(ast);
         // return;
         //处理Form
@@ -46,43 +44,31 @@ function startMod(ast: Node, currentPath: string) {
       }
     },
   });
-  return flag;
 }
-let count = 0;
+
 async function run(path: string, target: string) {
   //Bun读取文件
   const code = await Bun.file(path).text();
   // return;
   const ast = parser.parse(code, {
     sourceType: "module",
-    plugins: ["jsx", "typescript", "decorators"],
+    plugins: ["jsx", "typescript"],
   });
-  const flag = startMod(ast, path);
-  if (!flag) return;
-  count++;
+  startMod(ast);
   const targetCode = generate(ast);
-  const formatedCode = await prettier.format(targetCode.code, {
-    parser: "babel",
-    printWidth: 120, // 行宽
-    tabWidth: 2, // 缩进字节数
-    semi: true, // 句尾添加分号
-    singleQuote: true, // 单引号
-    jsxSingleQuote: true, // JSX单引号
-    arrowParens: "avoid", //箭头函数一个参数省略括号
-  });
-  Bun.write(target, formatedCode);
+  Bun.write(target, targetCode.code);
 }
 
 async function gogo(path: string) {
   const res = await glob(path, {
     ignore: ["node_modules/**/*"],
   });
-
+  console.log(res);
   for (const item of res) {
-    // const target = item.replace("src", "dist");
-    // console.log(target);
-    await run(item, item);
+    const target = item.replace("source", "dist");
+    console.log(target);
+    await run(item, target);
   }
-  console.log(count);
+  // console.log(res.length);
 }
-gogo("/Users/hasnum/Documents/ZL/code/ehome-admin-async/square/src/**/*.js");
+gogo("./source/**/*.js");
