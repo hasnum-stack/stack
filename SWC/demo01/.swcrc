@@ -1,0 +1,19 @@
+{
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "dynamicImport": true
+    },
+    "externalHelpers": true
+  },
+  "env": {
+    "targets": {
+      "chrome": "66",
+      "ie": "11"
+    },
+    "coreJs": "3.38.0",
+    "mode": "usage"
+  }
+}

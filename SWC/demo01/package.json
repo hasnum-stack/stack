@@ -4,7 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@swc/cli": "^0.1.46",
-    "@swc/core": "^1.2.77"
+    "@swc/cli": "0.4.0",
+    "@swc/core": "1.7.6",
+    "browserslist": "^4.23.3",
+    "chokidar": "3.6.0"
+  },
+  "scripts": {
+    "start": "swc src -d ./target"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "dependencies": {
+    "@swc/helpers": "0.5.12",
+    "core-js": "3.38.0"
   }
 }
