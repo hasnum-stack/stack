@@ -1,5 +1,6 @@
-import { NodePath } from "@babel/traverse";
-import t, { type CallExpression } from "@babel/types";
+import traverse, { NodePath } from "@babel/traverse";
+import t, { type CallExpression, type Node } from "@babel/types";
+import generate from "@babel/generator";
 
 /**
  * remove getFieldDecorator()
@@ -36,6 +37,15 @@ export function removeGetFieldDecorators(path: NodePath<CallExpression>) {
         );
         return;
       }
+      if (index === 0 && t.isIdentifier(item)) {
+        attributes.push(
+          t.jSXAttribute(
+            t.jSXIdentifier("name"),
+            t.jSXExpressionContainer(item),
+          ),
+        );
+        return;
+      }
       if (index === 1) {
         if (t.isObjectExpression(item)) {
           const properties = item.properties;
@@ -67,15 +77,22 @@ export function removeGetFieldDecorators(path: NodePath<CallExpression>) {
     const callParent = path.parentPath;
     // 过滤条件
     if (!t.isCallExpression(callParent.node)) return;
+    // console.log(generate(callParent.node));
     const args = callParent.node.arguments;
     const jSXExpressionContainer = callParent.parentPath;
     if (!t.isJSXExpressionContainer(jSXExpressionContainer?.node)) return;
+
     if (args.length > 0) {
       // 父级CallExpression的参数为JSXElement
       const node = args[0];
+
       if (t.isJSXExpressionContainer(jSXExpressionContainer.node)) {
         if (node && t.isJSXElement(node)) {
           jSXExpressionContainer.replaceWith(node);
+        }
+
+        if (node && t.isConditionalExpression(node)) {
+          jSXExpressionContainer.replaceWith(t.jSXExpressionContainer(node));
         }
       }
     }
@@ -87,4 +104,30 @@ export function removeGetFieldDecorators(path: NodePath<CallExpression>) {
     return true;
   }
   return false;
+}
+export function removeObjectPropertyGetFieldDecorator(
+  path: NodePath<t.Identifier>,
+) {
+  if (path.node.name === "getFieldDecorator") {
+    if (path.parentPath.isObjectProperty()) {
+      path.parentPath.remove();
+      return true;
+    }
+  }
+}
+export function removeEmptyObject(ast: Node) {
+  traverse(ast, {
+    ObjectPattern: (path) => {
+      if (path.node.properties.length === 0) {
+        //向上查找,找到VariableDeclarator
+        path.findParent((parent) => {
+          if (t.isVariableDeclarator(parent.node)) {
+            parent.remove();
+            return true;
+          }
+          return false;
+        });
+      }
+    },
+  });
 }

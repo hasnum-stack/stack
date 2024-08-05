@@ -8,67 +8,54 @@ import type {
   Node,
 } from "@babel/types";
 import { glob, globStream } from "glob";
-import fs from "fs";
+import prettier from "prettier";
 import compatibleForm2ant from "./src/compatibleForm2ant.ts";
 import { traverseFormCreate } from "./src/traverse/traverseFormCreate.ts";
-function startMod(ast: Node) {
-  traverse(ast, {
-    ImportDeclaration: (path: NodePath<ImportDeclaration>) => {
-      /**
-       * 查找import @ant-design/compatible语句
-       * 过滤出需要处理的文件
-       */
-      if (path.node.source.value === "@ant-design/compatible") {
-        const specifiers = path.node.specifiers;
-        const specifiersLength = specifiers.length;
-        // Form标识的索引
-        const indexForm = specifiers.findIndex((item, index) => {
-          if (
-            item.type === "ImportSpecifier" &&
-            item.imported.type === "Identifier"
-          ) {
-            return item.imported.name === "Form";
-          }
-        });
-        //只有一个specifier,直接删除整个import语句
-        if (specifiersLength === 1) {
-          path.remove();
-        } else {
-          specifiers.splice(indexForm, 1);
-        }
+import { handleImportForm } from "./src/handle/handleImportForm.ts";
+import { handleImportIcon } from "./src/handle/handleImportIcon.ts";
+import { handleRootClassName } from "./src/handle/handleRootClassName.ts";
+function startMod(ast: Node, currentPath: string) {
+  let flag = false;
+  const classNameFlag = handleRootClassName(ast);
+  flag = flag || classNameFlag;
 
-        traverseFormCreate(ast);
-        // return;
-        //处理Form
-        compatibleForm2ant(ast);
-      }
-    },
-  });
+  return flag;
 }
-
+let count = 0;
 async function run(path: string, target: string) {
   //Bun读取文件
   const code = await Bun.file(path).text();
   // return;
   const ast = parser.parse(code, {
     sourceType: "module",
-    plugins: ["jsx", "typescript"],
+    plugins: ["jsx", "typescript", "decorators"],
   });
-  startMod(ast);
+  const flag = startMod(ast, path);
+  if (!flag) return;
+  count++;
   const targetCode = generate(ast);
-  Bun.write(target, targetCode.code);
+  const formatedCode = await prettier.format(targetCode.code, {
+    parser: "babel",
+    printWidth: 120, // 行宽
+    tabWidth: 2, // 缩进字节数
+    semi: true, // 句尾添加分号
+    singleQuote: true, // 单引号
+    jsxSingleQuote: true, // JSX单引号
+    arrowParens: "avoid", //箭头函数一个参数省略括号
+  });
+  Bun.write(target, formatedCode);
 }
 
 async function gogo(path: string) {
   const res = await glob(path, {
     ignore: ["node_modules/**/*"],
   });
-  console.log(res);
+
   for (const item of res) {
-    const target = item.replace("source", "dist");
-    console.log(target);
+    const target = item.replace("source1", "dist1");
+
     await run(item, target);
   }
-  // console.log(res.length);
+  console.log(count);
 }
-gogo("./source/**/*.js");
+gogo("/Users/hasnum/Documents/ZL/code/ehome-admin-async/square/src/**/*.js");

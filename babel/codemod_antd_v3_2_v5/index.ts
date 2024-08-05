@@ -11,6 +11,9 @@ import { glob, globStream } from "glob";
 import prettier from "prettier";
 import compatibleForm2ant from "./src/compatibleForm2ant.ts";
 import { traverseFormCreate } from "./src/traverse/traverseFormCreate.ts";
+import { handleImportForm } from "./src/handle/handleImportForm.ts";
+import { handleImportIcon } from "./src/handle/handleImportIcon.ts";
+import { handleRootClassName } from "./src/handle/handleRootClassName.ts";
 function startMod(ast: Node, currentPath: string) {
   let flag = false;
   traverse(ast, {
@@ -20,9 +23,7 @@ function startMod(ast: Node, currentPath: string) {
        * 过滤出需要处理的文件
        */
       if (path.node.source.value === "@ant-design/compatible") {
-        flag = true;
         const specifiers = path.node.specifiers;
-        const specifiersLength = specifiers.length;
         // Form标识的索引
         const indexForm = specifiers.findIndex((item, index) => {
           if (
@@ -32,20 +33,28 @@ function startMod(ast: Node, currentPath: string) {
             return item.imported.name === "Form";
           }
         });
-        //只有一个specifier,直接删除整个import语句
-        if (specifiersLength === 1) {
-          path.remove();
-        } else {
-          specifiers.splice(indexForm, 1);
-        }
-        console.log(currentPath);
-        traverseFormCreate(ast);
-        // return;
-        //处理Form
-        compatibleForm2ant(ast);
+        const importFormFlag = handleImportForm(ast, path, indexForm);
+
+        //import { Icon as LegacyIcon } from '@ant-design/compatible';
+        const indexIcon = specifiers.findIndex((item, index) => {
+          if (
+            item.type === "ImportSpecifier" &&
+            item.imported.type === "Identifier" &&
+            item.imported.name === "Icon" &&
+            item.local.type === "Identifier" &&
+            item.local.name === "LegacyIcon"
+          ) {
+            return true;
+          }
+        });
+        const importIconFlag = handleImportIcon(ast, path, indexIcon);
+
+        const classNameFlag = handleRootClassName(ast);
+        flag = importFormFlag || importIconFlag || classNameFlag;
       }
     },
   });
+
   return flag;
 }
 let count = 0;

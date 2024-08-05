@@ -1,33 +1,32 @@
-import React, { Component, PureComponent } from "react";
-import "./index.less";
-import ImgBg from "static/identification-form-bg.png";
-import ImgForm from "static/identification-form-img.png";
-import { withRouter } from "react-router-dom";
-import { Form, Icon } from "@ant-design/compatible";
+import React, { Component, PureComponent } from 'react';
+import './index.less';
+import ImgBg from 'static/identification-form-bg.png';
+import ImgForm from 'static/identification-form-img.png';
+import { withRouter } from 'react-router-dom';
+import { Icon } from '@ant-design/compatible';
 // import { Form } from "@ant-design/compatible";
 
 // import '@ant-design/compatible/assets/index.css';
 
-import { Select, Input, message, Steps, Button, Spin } from "antd";
-import { TextArea } from "components";
-import debounce from "lodash/debounce";
-import { callApi, getBasicInfo } from "utils";
-import { api } from "../../config";
-import ImgSuccess from "static/portalwebsite_finished_icon.png";
-import FieldEdit from "components/FormManagementV2/components/FieldEdit";
+import { Select, Input, message, Steps, Button, Spin, Form } from 'antd';
+import { TextArea } from 'components';
+import debounce from 'lodash/debounce';
+import { callApi, getBasicInfo } from 'utils';
+import { api } from '../../config';
+import ImgSuccess from 'static/portalwebsite_finished_icon.png';
+import FieldEdit from 'components/FormManagementV2/components/FieldEdit';
 const x = 1;
 console.log(x + 2);
 // 去除前后空格
 function whitespaceTrim(val) {
-  if (typeof val === "string") {
+  if (typeof val === 'string') {
     return val.trim();
   }
-  return "";
+  return '';
 }
-
-const prefixCls = "apply-form";
-
+const prefixCls = 'apply-form';
 class ApplyForm extends Component {
+  formRef = React.createRef();
   constructor(props) {
     super(props);
     this.state = {
@@ -40,19 +39,20 @@ class ApplyForm extends Component {
       validators: [],
     };
     this.lastFetchId = 0;
-    this.communityId = "";
-    this.organizationId = "";
+    this.communityId = '';
+    this.organizationId = '';
     this.onSearch = debounce(this.onSearch, 500);
   }
-
   onClickApplyBtn = () => {
     const { history } = this.props;
-    this.props.form.validateFields((errors, values) => {
+    this.formRef.current.validateFields((errors, values) => {
       if (!errors) {
         const { organizationName, contactName, contactDescription } = values;
         // const communityId = getBasicInfo('communityId');
-        const userId = getBasicInfo("userInfo").id;
-        this.setState({ submiting: true });
+        const userId = getBasicInfo('userInfo').id;
+        this.setState({
+          submiting: true,
+        });
         callApi({
           api: api.applyForOrganizationAdminstrator,
           data: {
@@ -64,13 +64,13 @@ class ApplyForm extends Component {
             contactDescription: whitespaceTrim(contactDescription),
           },
           success: () => {
-            history.push("/identification/apply-success");
+            history.push('/identification/apply-success');
           },
-          error: ({ errorCode, errorDescription = "" }) => {
+          error: ({ errorCode, errorDescription = '' }) => {
             if (errorCode === 51001 || errorCode === 51002) {
               message.error(errorDescription);
             } else {
-              message.error("提交失败，请重试");
+              message.error('提交失败，请重试');
             }
           },
           complete: () => {
@@ -82,26 +82,26 @@ class ApplyForm extends Component {
       }
     });
   };
-
   onClickCancelBtn = () => {
     const { history } = this.props;
-    history.replace("/");
+    history.replace('/');
   };
-
   handleChange = (value, option) => {
     this.communityId = option.props.dataRef.communityId;
     this.organizationId = option.props.dataRef.id;
   };
-
-  onSearch = (value) => {
+  onSearch = value => {
     if (!value) {
       return;
     }
     this.lastFetchId += 1;
     const fetchId = this.lastFetchId;
-    this.setState({ list: [], fetching: true });
-    const namespaceId = getBasicInfo("domainInfo").namespaceId;
-    const communityId = getBasicInfo("communityId");
+    this.setState({
+      list: [],
+      fetching: true,
+    });
+    const namespaceId = getBasicInfo('domainInfo').namespaceId;
+    const communityId = getBasicInfo('communityId');
     callApi({
       api: api.searchEnterprise,
       data: {
@@ -122,18 +122,20 @@ class ApplyForm extends Component {
           });
         }
       },
-      error: ({ errorDescription = "" }) => {
+      error: ({ errorDescription = '' }) => {
         message.error(errorDescription);
       },
       complete: () => {
-        this.setState({ fetching: false });
+        this.setState({
+          fetching: false,
+        });
       },
     });
   };
 
   // 点击下一步
   onClickNextBtn = () => {
-    this.props.form.validateFields(["organizationName"], (errors, values) => {
+    this.formRef.current.validateFields(['organizationName'], (errors, values) => {
       if (errors) {
         return;
       }
@@ -150,7 +152,6 @@ class ApplyForm extends Component {
       current: this.state.current - 1,
     });
   };
-
   listUserAuthForms = () => {
     this.setState({
       formFieldsLoading: true,
@@ -158,7 +159,7 @@ class ApplyForm extends Component {
     callApi({
       api: api.listUserAuthForms,
       data: {
-        namespaceId: getBasicInfo("domainInfo").namespaceId,
+        namespaceId: getBasicInfo('domainInfo').namespaceId,
         communityId: this.communityId,
         pageSize: 10,
       },
@@ -184,7 +185,7 @@ class ApplyForm extends Component {
 
   // 点击提交按钮
   onClickSubmitBtn = () => {
-    this.props.form.validateFields((errors, values) => {
+    this.formRef.current.validateFields((errors, values) => {
       if (errors) {
         console.error(errors);
         return;
@@ -195,13 +196,13 @@ class ApplyForm extends Component {
       callApi({
         api: api,
         data: values,
-        success: (res) => {
+        success: res => {
           this.setState({
             current: this.state.current + 1,
           });
         },
         error: () => {
-          message.error("提交失败");
+          message.error('提交失败');
         },
         complete: () => {
           this.setState({
@@ -216,97 +217,72 @@ class ApplyForm extends Component {
   onClickBackBtn = () => {
     this.props.history.goBack();
   };
-
-  changeValidators = (validators) => {
-    this.setState({ validators });
+  changeValidators = validators => {
+    this.setState({
+      validators,
+    });
   };
-
   changeFormFields = (newFormFields, cb) => {
     this.setState({
       formFields: newFormFields,
     });
     setTimeout(cb);
   };
-
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const {
-      list,
-      fetching,
-      submiting,
-      current,
-      formFields,
-      formFieldsLoading,
-      validators,
-    } = this.state;
-
+    const { list, fetching, submiting, current, formFields, formFieldsLoading, validators } = this.state;
     return (
-      <Form className={prefixCls} layout="vertical">
-        <div
-          className={`${prefixCls}-content ${
-            current === 1 ? "has-footer" : ""
-          }`}
-        >
-          <Steps
-            current={current}
-            className={`${prefixCls}-steps`}
-            size="small"
-          >
-            <Steps.Step title="选择企业" />
-            <Steps.Step title="填写信息" />
-            <Steps.Step title="完成" />
+      <Form className={prefixCls} layout='vertical' ref={this.formRef}>
+        <div className={`${prefixCls}-content ${current === 1 ? 'has-footer' : ''}`}>
+          <Steps current={current} className={`${prefixCls}-steps`} size='small'>
+            <Steps.Step title='选择企业' />
+            <Steps.Step title='填写信息' />
+            <Steps.Step title='完成' />
           </Steps>
           <div className={`${prefixCls}-form-items`}>
-            <div
-              className={`${prefixCls}-step-content ${
-                current !== 0 ? "hidden" : ""
-              }`}
-            >
+            <div className={`${prefixCls}-step-content ${current !== 0 ? 'hidden' : ''}`}>
               <Form.Item
-                extra="与颁发商业许可证书或企业注册证书上需一致。"
-                style={{ marginBottom: 24 }}
+                extra='与颁发商业许可证书或企业注册证书上需一致。'
+                style={{
+                  marginBottom: 24,
+                }}
+                name='organizationName'
+                rules={[
+                  {
+                    required: true,
+                    message: '请选择企业',
+                    transform: whitespaceTrim,
+                  },
+                ]}
               >
-                {getFieldDecorator("organizationName", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "请选择企业",
-                      transform: whitespaceTrim,
-                    },
-                  ],
-                })(
-                  <Select
-                    placeholder="请输入关键字"
-                    onSearch={this.onSearch}
-                    onSelect={this.handleChange}
-                    loading={fetching}
-                    filterOption={false}
-                    showSearch
-                    style={{ width: 448 }}
-                  >
-                    {list.map((it) => (
-                      <Select.Option key={it.id} dataRef={it} value={it.name}>
-                        {it.name}
-                      </Select.Option>
-                    ))}
-                  </Select>,
-                )}
+                <Select
+                  placeholder='请输入关键字'
+                  onSearch={this.onSearch}
+                  onSelect={this.handleChange}
+                  loading={fetching}
+                  filterOption={false}
+                  showSearch
+                  style={{
+                    width: 448,
+                  }}
+                >
+                  {list.map(it => (
+                    <Select.Option key={it.id} dataRef={it} value={it.name}>
+                      {it.name}
+                    </Select.Option>
+                  ))}
+                </Select>
               </Form.Item>
-              <Button onClick={this.onClickNextBtn} type="primary">
+              <Button onClick={this.onClickNextBtn} type='primary'>
                 下一步
               </Button>
             </div>
-            <div
-              className={`${prefixCls}-step-content ${
-                current !== 1 ? "hidden" : ""
-              }`}
-            >
+            <div className={`${prefixCls}-step-content ${current !== 1 ? 'hidden' : ''}`}>
               <Spin spinning={formFieldsLoading}>
                 {!formFieldsLoading &&
                   (formFields.length ? (
                     <div className={`${prefixCls}-custom-form`}>
                       <FieldEdit
-                        form={this.props.form}
+                        form={this.formRef.current}
                         formFields={formFields}
                         changeFormFields={this.changeFormFields}
                         validators={validators}
@@ -317,46 +293,44 @@ class ApplyForm extends Component {
                     </div>
                   ) : (
                     <div className={`${prefixCls}-default-form form-item-l`}>
-                      <Form.Item label="姓名">
-                        {getFieldDecorator("name", {
-                          rules: [
-                            {
-                              required: true,
-                              message: "请输入姓名",
-                              transform: whitespaceTrim,
-                            },
-                          ],
-                        })(<Input />)}
+                      <Form.Item
+                        label='姓名'
+                        name='name'
+                        rules={[
+                          {
+                            required: true,
+                            message: '请输入姓名',
+                            transform: whitespaceTrim,
+                          },
+                        ]}
+                      >
+                        <Input />
                       </Form.Item>
-                      <Form.Item label="部门">
-                        {getFieldDecorator("department")(<Input />)}
+                      <Form.Item label='部门' name='department'>
+                        <Input />
                       </Form.Item>
-                      <Form.Item label="邮箱">
-                        {getFieldDecorator("email", {
-                          rules: [
-                            {
-                              type: "email",
-                              message: "请输入正确的邮箱",
-                              transform: whitespaceTrim,
-                            },
-                          ],
-                        })(<Input />)}
+                      <Form.Item
+                        label='邮箱'
+                        name='email'
+                        rules={[
+                          {
+                            type: 'email',
+                            message: '请输入正确的邮箱',
+                            transform: whitespaceTrim,
+                          },
+                        ]}
+                      >
+                        <Input />
                       </Form.Item>
                     </div>
                   ))}
               </Spin>
             </div>
-            <div
-              className={`${prefixCls}-success ${
-                current !== 2 ? "hidden" : ""
-              }`}
-            >
+            <div className={`${prefixCls}-success ${current !== 2 ? 'hidden' : ''}`}>
               <img src={ImgSuccess} />
               <div className={`${prefixCls}-success-title`}>申请已提交成功</div>
-              <div className={`${prefixCls}-success-tip`}>
-                管理方正在审核，结果将以短信的形式通知。
-              </div>
-              <Button type="primary" onClick={this.onClickBackBtn}>
+              <div className={`${prefixCls}-success-tip`}>管理方正在审核，结果将以短信的形式通知。</div>
+              <Button type='primary' onClick={this.onClickBackBtn}>
                 返回
               </Button>
             </div>
@@ -364,11 +338,7 @@ class ApplyForm extends Component {
           {current === 1 && (
             <div className={`${prefixCls}-footer`}>
               <Button onClick={this.onClickPrevBtn}>上一步</Button>
-              <Button
-                type="primary"
-                onClick={this.onClickSubmitBtn}
-                loading={submiting}
-              >
+              <Button type='primary' onClick={this.onClickSubmitBtn} loading={submiting}>
                 确定
               </Button>
             </div>
@@ -378,9 +348,9 @@ class ApplyForm extends Component {
     );
   }
 }
-Form.create()(ApplyForm);
-Form.create("apply-form")(ApplyForm);
-export default withRouter(Form.create("apply-form")(ApplyForm));
+ApplyForm;
+ApplyForm;
+export default withRouter(ApplyForm);
 class ApplyForm1 extends (PureComponent || Component) {}
 class App extends React.Component {}
 function Reads() {
