@@ -15,5 +15,6 @@
     },
     "coreJs": "3.38.0",
     "mode": "usage"
-  }
+  },
+  "module": { "type": "commonjs" }
 }
