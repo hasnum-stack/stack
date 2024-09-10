@@ -11,12 +11,14 @@ bun install
 bun run index.ts
 ```
 
-- 1.@ant-design/compatible中Form去掉
-- 2.去掉Form.create()
-- 3.获取Form.create()中的组件,给其添加FormInstance
-- 4.Form添加到antd
-- 5.remove getFieldDecorator(),添加Form.Item的属性
-- 6.icon的type改成icon
+- @ant-design/compatible中Form去掉
+- 去掉Form.create()
+- 获取Form.create()中的组件,给其添加FormInstance
+- Form添加到antd
+- remove getFieldDecorator(),添加Form.Item的属性
+- 添加 formRef = React.createRef(),this.props.form 替换成 this.formRef.current 
+- Form添加ref={this.formRef}
+- icon的type改成icon
 
 ### 执行
 ```bash
