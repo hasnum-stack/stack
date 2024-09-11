@@ -26,6 +26,27 @@ bun run index2.ts
 ```
 1. Drawer下的组件rootClassname改成className
 
-
+## 手动
 ### 安装与替换
 moment -> dayjs
+dayjs().hours() -> dayjs().hour()
+dayjs().minutes() -> dayjs().minute()
+
+### form
+```
+this.formRef.current.validateFields((err, values) => {
+if (err) {
+return;
+}
+this.props.changeConfirmLoading(true);
+this.props.onOk(values.dueDayDeadline);
+});
+```
+改成
+```
+this.formRef.current.validateFields().then(values => {
+this.props.changeConfirmLoading(true);
+this.props.onOk(values.dueDayDeadline);
+});
+```
+
