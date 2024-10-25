@@ -1,6 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import * as styles from './index.module.less';
+console.log(styles);
+const Page1 = React.lazy(() => import('./pages/Page1'));
 /**
  * useEffect 依赖性非state,会在渲染时判断
  * setCount, 触发渲染,会重新执行useEffect
@@ -13,6 +16,7 @@ function App() {
   }, [window.count]);
   return (
     <div className="App">
+      <div className="test">aa</div>
       <div>
         <a href="https://reactjs.org" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
@@ -35,6 +39,7 @@ function App() {
         </button>
       </div>
       <p className="read-the-docs">Click on the Rspack and React logos to learn more</p>
+      <Page1 />
     </div>
   );
 }
