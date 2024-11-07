@@ -21,5 +21,10 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "typescript": "^5.6.3"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not < 0.5%"
+  ]
 }
