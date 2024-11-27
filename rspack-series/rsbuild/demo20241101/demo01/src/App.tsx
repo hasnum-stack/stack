@@ -1,6 +1,8 @@
 import './App.css';
 import { useState } from 'react';
-
+import ProListTest from './components/ProListTest';
+// import List from './components/List';
+// import { ProCard } from '@ant-design/pro-components';
 const App = () => {
   const [count, setCount] = useState(0);
   return (
@@ -16,6 +18,11 @@ const App = () => {
       >
         Do something
       </button>
+      {/* <Detail /> */}
+      {/* {test.name} */}
+      {/* <List /> */}
+      {/* <ProCard /> */}
+      <ProListTest />
     </div>
   );
 };

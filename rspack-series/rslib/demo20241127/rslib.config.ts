@@ -12,21 +12,6 @@ export default defineConfig({
       bundle: false,
       dts: true,
       format: 'esm',
-      output: {
-        distPath: {
-          root: 'es',
-        },
-      },
-    },
-    {
-      bundle: false,
-      dts: true,
-      format: 'cjs',
-      output: {
-        distPath: {
-          root: 'lib',
-        },
-      },
     },
   ],
   output: {

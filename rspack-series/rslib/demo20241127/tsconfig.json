@@ -10,5 +10,5 @@
     "moduleResolution": "bundler",
     "useDefineForClassFields": true
   },
-  "include": ["src"]
+  "include": ["src", "stories/Button.stories.ts", "stories/Hand.stories.ts", "stories/List.stories.ts"]
 }
