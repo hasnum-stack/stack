@@ -1,5 +1,4 @@
-import Part from './components/Part';
-
+import { Part } from './components';
 const App = () => {
   return (
     <div className="content">

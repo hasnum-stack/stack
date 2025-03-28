@@ -1,6 +1,7 @@
 import React from 'react';
-import './index.less'
+import './index.less';
 import { createStyles } from 'antd-style';
+console.log('mfmfmfmfmfmf_part');
 const useStyles = createStyles(({ token }) => {
   const primaryColor = token.colorPrimary;
   return {
@@ -10,7 +11,7 @@ const useStyles = createStyles(({ token }) => {
   };
 });
 
-const Provider: React.FC = () => {
+const Part: React.FC = () => {
   const { styles } = useStyles();
 
   return (
@@ -24,4 +25,4 @@ const Provider: React.FC = () => {
   );
 };
 
-export default Provider;
+export default Part;
