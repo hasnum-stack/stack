@@ -1,0 +1,25 @@
+{
+  "name": "hasnum_provider",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "antd": "^5.24.5",
+    "antd-style": "^3.7.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@module-federation/rsbuild-plugin": "^0.11.2",
+    "@rsbuild/core": "^1.2.19",
+    "@rsbuild/plugin-less": "^1.1.1",
+    "@rsbuild/plugin-react": "^1.1.1",
+    "@types/react": "^18.3.20",
+    "@types/react-dom": "~18.3.5",
+    "typescript": "^5.8.2"
+  }
+}
