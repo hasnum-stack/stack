@@ -10,7 +10,7 @@ export default defineConfig({
     sourceMap: false,
     polyfill: 'entry',
     minify: false,
-    externals: { 'react': 'React', 'react-dom': 'ReactDOM' },
+    // externals: { 'react': 'React', 'react-dom': 'ReactDOM' },
   },
   html: {
     inject: 'body',
@@ -20,18 +20,18 @@ export default defineConfig({
         tag: 'script',
         children: 'console.log(123); Array.prototype.includes = null;',
       },
-      {
-        tag: 'script',
-        attrs: {
-          src: 'https://unpkg.com/react@18/umd/react.development.js',
-        },
-      },
-      {
-        tag: 'script',
-        attrs: {
-          src: 'https://unpkg.com/react-dom@18/umd/react-dom.development.js',
-        },
-      },
+      // {
+      //   tag: 'script',
+      //   attrs: {
+      //     src: 'https://unpkg.com/react@18/umd/react.development.js',
+      //   },
+      // },
+      // {
+      //   tag: 'script',
+      //   attrs: {
+      //     src: 'https://unpkg.com/react-dom@18/umd/react-dom.development.js',
+      //   },
+      // },
     ],
   },
   plugins: [
