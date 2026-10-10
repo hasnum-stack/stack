@@ -1,8 +1,9 @@
-// import './App.css';
+import './App.css';
 // import './index.less';
 import { useState } from 'react';
 console.log(useState, 'useState');
-import List from './components/List';
+// import List from './components/List';
+import TestPretext from './components/TestPretext';
 // const A = () => <span>Rsbuild</span>;
 // const B = () => <span>{[1, 2, 3].map(n => n * 2)}</span>;
 const C = () => Object.entries({ a: 1, b: 2 }).map(([k, v]) => <span key={k}>{`${k}:${v}`}</span>);
@@ -17,9 +18,9 @@ const App = () => {
     <div className="content">
       {/* <A /> */}
       {/* <B /> */}
-      <C />
-      <List value={value} onChange={setValue} />
-
+      {/* <C /> */}
+      {/* <List value={value} onChange={setValue} /> */}
+      <TestPretext />
       {/* <List value={value} onChange={setValue} /> */}
     </div>
   );
